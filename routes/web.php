@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProductDetail;
 use App\Models\Produk;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+
 // use App\Models\Produk;
 
 /*
@@ -65,3 +67,5 @@ Route::get('user/product', function () {
 });
 
 Route::get('user/product/{nama}',[ProductDetail::class,'detailData']);
+
+Route::get('user/tampil',[UserController::class,'tampiluser'])->name('tampiluser');
