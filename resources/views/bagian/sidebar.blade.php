@@ -15,27 +15,27 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-blank.html">
-          <i class="bi bi-file-earmark"></i>
-          <span>View</span>
+          <i class="ri-account-box-line"></i>
+          <span>Profile</span>
         </a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-blank.html">
-          <i class="bi bi-file-earmark"></i>
-          <span>Add</span>
+          <i class="ri-folder-chart-line"></i>
+          <span>User</span>
         </a>
       </li>
 
       
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-blank.html">
-          <i class="bi bi-file-earmark"></i>
+          <i class="ri-archive-line"></i>
           <span>Product</span>
         </a>
       </li>
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="pages-blank.html">
           <i class="bi bi-file-earmark"></i>
           <span>Login</span>
@@ -47,7 +47,7 @@
           <i class="bi bi-file-earmark"></i>
           <span>Logout</span>
         </a>
-      </li>
+      </li> --}}
 
     </ul>
 

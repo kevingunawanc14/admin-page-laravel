@@ -3,7 +3,11 @@
 use App\Http\Controllers\ProductDetail;
 use App\Models\Produk;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ViewUserController;
 use App\Http\Controllers\UserController;
+
 
 // use App\Models\Produk;
 
@@ -18,54 +22,65 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
-Route::get('/a', function () {
+// Route::get('/a', function () {
 
-    $data2 = ["a","b","c"];
+//     $data2 = ["a","b","c"];
 
-    // $data3 = [
-    // ["angka" => 1
-    // ,"nama" => "a"],
-    // ["angka" => 2
-    // ,"nama" => "b"],
-    // ["angka" => 3
-    // ,"nama" => "c"]];
+//     // $data3 = [
+//     // ["angka" => 1
+//     // ,"nama" => "a"],
+//     // ["angka" => 2
+//     // ,"nama" => "b"],
+//     // ["angka" => 3
+//     // ,"nama" => "c"]];
     
-    return view('a', [
-    "data1" => "test123" ,
-    "data2" => coba::all()
-    ]);
+//     return view('a', [
+//     "data1" => "test123" ,
+//     "data2" => coba::all()
+//     ]);
 
 
-});
+// });
 
-Route::get('/b', function () {
-    return view('template');
-});
+// Route::get('/b', function () {
+//     return view('template');
+// });
 
-Route::get('/c', function () {
-    return view('c');
-});
+// Route::get('/c', function () {
+//     return view('c');
+// });
 
-Route::get('user/view', function () {
-    return view('user/view');
-});
+// Route::get('user/view', function () {
+//     return view('user/view');
+// });
 
 
-Route::get('user/add', function () {
-    return view('user/add');
-});
+// Route::get('user/add', function () {
+//     return view('user/add');
+// });
 
-Route::get('user/product', function () {
-    return view('user/product',[
-        "nama" => Produk::all()
-    ]);
-});
+// Route::get('user/product', function () {
+//     return view('user/product',[
+//         "nama" => Produk::all()
+//     ]);
+// });
 
-Route::get('user/product/{nama}',[ProductDetail::class,'detailData']);
+// Route::get('user/product/{nama}',[ProductDetail::class,'detailData']);
 
-Route::get('user/tampil',[UserController::class,'tampiluser'])->name('tampiluser');
+// Route::get('user/tampil',[UserController::class,'tampiluser'])->name('tampiluser');
+
+Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/view', [ViewUserController::class, 'index'])->name('index');
+Route::get('/user', [UserController::class, 'index'])->name('index');
+Route::get('/product', [ProductController::class, 'index'])->name('index');
+
+
+// Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
+
+// Route::get('home', [HomeController::class, 'index'])->name('home')->middleware('auth');
+// Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
