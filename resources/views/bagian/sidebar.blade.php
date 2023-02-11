@@ -14,14 +14,14 @@
 
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-blank.html">
+        <a class="nav-link collapsed" href="{{url('')}}/profileUser">
           <i class="ri-account-box-line"></i>
           <span>Profile</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-blank.html">
+        <a class="nav-link collapsed" href="{{url('')}}/viewAllUser">
           <i class="ri-hq-line"></i>
           <span>User</span>
         </a>
@@ -29,9 +29,9 @@
 
       
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-blank.html">
+        <a class="nav-link collapsed" href="{{url('')}}/viewAllProduct">
           <i class="ri-archive-line"></i>
-          <span>Product</span>
+          <span>Product1</span>
         </a>
       </li>
 

@@ -75,10 +75,11 @@ use App\Http\Controllers\UserController;
 // Route::get('user/tampil',[UserController::class,'tampiluser'])->name('tampiluser');
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('/viewProfile', [ViewUserController::class, 'profileUser'])->name('profileUser');
-Route::get('/user', [UserController::class, 'viewAllUser'])->name('viewAllUser');
-Route::get('/product', [ProductController::class, 'index'])->name('index');
+Route::get('/profileUser', [ViewUserController::class, 'profileUser'])->name('profileUser');
+Route::get('/viewAllUser', [UserController::class, 'viewAllUser'])->name('viewAllUser');
+Route::get('/viewAllProduct', [ProductController::class, 'index'])->name('index');
 
+// 1 model menuju ke 1 instance dengan berbagai fungsi sesuai
 
 // Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 
