@@ -11,4 +11,13 @@ class UserController extends Controller
     {
         return view('user/user');
     }
+
+    public function viewAllUser()
+    {
+        $user = User::select('*')->get();
+        
+
+        return view('user/user', ['user' => $user]);
+    }
+    
 }

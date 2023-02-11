@@ -75,8 +75,8 @@ use App\Http\Controllers\UserController;
 // Route::get('user/tampil',[UserController::class,'tampiluser'])->name('tampiluser');
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('/view', [ViewUserController::class, 'index'])->name('index');
-Route::get('/user', [UserController::class, 'index'])->name('index');
+Route::get('/viewProfile', [ViewUserController::class, 'profileUser'])->name('profileUser');
+Route::get('/user', [UserController::class, 'viewAllUser'])->name('viewAllUser');
 Route::get('/product', [ProductController::class, 'index'])->name('index');
 
 

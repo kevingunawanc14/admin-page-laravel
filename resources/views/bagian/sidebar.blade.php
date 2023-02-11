@@ -22,7 +22,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-blank.html">
-          <i class="ri-folder-chart-line"></i>
+          <i class="ri-hq-line"></i>
           <span>User</span>
         </a>
       </li>
