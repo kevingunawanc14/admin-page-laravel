@@ -79,6 +79,9 @@ Route::get('/profileUser', [ViewUserController::class, 'profileUser'])->name('pr
 Route::get('/viewAllUser', [UserController::class, 'viewAllUser'])->name('viewAllUser');
 Route::get('/viewAllProduct', [ProductController::class, 'index'])->name('index');
 
+// delete data user
+Route::get('/profileUser/hapus/{id_user}', [UserController::class, 'hapusUser'])->name('hapusUser');
+
 // 1 model menuju ke 1 instance dengan berbagai fungsi sesuai
 
 // Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');

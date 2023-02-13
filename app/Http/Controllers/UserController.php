@@ -19,5 +19,13 @@ class UserController extends Controller
 
         return view('user/user', ['user' => $user]);
     }
+
+    public function hapusUser($id_user)
+    {
+        $user = User::where('id_user', $id_user)
+        ->delete();
+
+        return redirect()->route('viewAllUser');
+    }
     
 }

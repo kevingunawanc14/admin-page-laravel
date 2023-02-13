@@ -15,6 +15,8 @@
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Alamat</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Status</th>
                             <th scope="col">Password</th>
                             <th scope="col">Action</th>
                         </tr>
@@ -25,12 +27,14 @@
                                 <th scope="row">{{ $data->id_user }}</th>
                                 <td>{{ $data->nama }}</td>
                                 <td>{{ $data->alamat }}</td>
+                                <td>{{ $data->email }}</td>
+                                <td>{{ $data->status }}</td>
                                 <td>{{ $data->password }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-secondary"><i
-                                            class="ri-settings-5-line"></i></button>
-                                    <button type="button" class="btn btn-danger"><i
-                                            class="ri-delete-bin-5-line"></i></button>
+                                    <a type="button" class="btn btn-secondary"><i
+                                            class="ri-settings-5-line"></i></a>
+                                    <a href="/profileUser/hapus/{{ $data->id_user }}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" type="button"
+                                        class="btn btn-danger"><i class="ri-delete-bin-5-line"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -46,10 +50,34 @@
 @endsection
 
 
-@section('addjs')
+@section('js')
     <script>
-        $(document).ready(function() {
-            $('#example').DataTable();
-        });
+        function deleteUser() {
+
+            let text = "Data Akan Dihapus";
+            if (confirm(text) == true) {
+                text = "You pressed OK!";
+            } else {
+                text = "You canceled!";
+            }
+
+            let idUser = document.getElementById("idUser").value
+
+            let Data = new FormData();
+            Data.append("idUser", idUser);
+
+            const xmlHttp = new XMLHttpRequest();
+            xmlHttp.onload = function() {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+
+                    alert("Data Berhasil Di Hapus")
+
+                } else {
+                    alert("Error!");
+                }
+            }
+            xmlHttp.open("POST", "request/delete_ajax.php");
+            xmlHttp.send(Data);
+        }
     </script>
 @endsection
