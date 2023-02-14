@@ -42,6 +42,7 @@
                 </table>
                 <!-- End Default Table Example -->
                 <a href="{{route('addUser')}}" type="button" class="btn btn-success"><i class="ri-add-circle-line"></i></a>
+                <a href="{{route('deleteAllUser')}}" type="button" class="btn btn-danger"  onclick="return confirm('Apakah Anda Yakin Menghapus Semua Data?');" ><i class="ri-alert-line" ></i></a>
             </div>
         </div>
 

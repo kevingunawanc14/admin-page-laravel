@@ -81,6 +81,8 @@ Route::get('/viewAllProduct', [ProductController::class, 'index'])->name('index'
 
 // delete data user
 Route::get('/profileUser/hapus/{id_user}', [UserController::class, 'hapusUser'])->name('hapusUser');
+// delete all row
+Route::get('/profileUser/deleteAllUser', [UserController::class, 'deleteAllUser'])->name('deleteAllUser');
 // add data user
 Route::get('/profileUser/add', [UserController::class, 'addUser'])->name('addUser');
 // update data user
