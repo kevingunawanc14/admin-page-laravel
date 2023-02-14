@@ -41,7 +41,7 @@
                     </tbody>
                 </table>
                 <!-- End Default Table Example -->
-                <button type="button" class="btn btn-success"><i class="ri-add-circle-line"></i></button></td>
+                <a href="{{route('addUser')}}" type="button" class="btn btn-success"><i class="ri-add-circle-line"></i></a>
             </div>
         </div>
 

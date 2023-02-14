@@ -81,6 +81,10 @@ Route::get('/viewAllProduct', [ProductController::class, 'index'])->name('index'
 
 // delete data user
 Route::get('/profileUser/hapus/{id_user}', [UserController::class, 'hapusUser'])->name('hapusUser');
+// add data user
+Route::get('/profileUser/add', [UserController::class, 'addUser'])->name('addUser');
+// update data user
+
 
 // 1 model menuju ke 1 instance dengan berbagai fungsi sesuai
 

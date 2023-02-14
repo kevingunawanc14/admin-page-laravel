@@ -27,5 +27,32 @@ class UserController extends Controller
 
         return redirect()->route('viewAllUser');
     }
+
+    public function addUser(){
+        
+
+        $user = User::create([
+            'nama' => generateRandomString(),
+            'alamat' => generateRandomString(),
+            'email' => generateRandomString(),
+            'status' => generateRandomString(),
+            'password' => generateRandomString()
+        ]);
+
+        return redirect()->route('viewAllUser');
+    }
+
+
     
+    
+}
+
+function generateRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[random_int(0, $charactersLength - 1)];
+    }
+    return $randomString;
 }
