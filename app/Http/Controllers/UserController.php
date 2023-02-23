@@ -73,10 +73,10 @@ class UserController extends Controller
         ]);
 
         // return redirect()->route('viewuserdata')->with('message', 'Data update succeesfully');
-        if($User){
-            return redirect()->route('viewAllUser')->with('berhasil','Data berhasil di tambahkan');
-        }else{
-            return redirect()->route('viewAllUser')->with('gagal','Data gagal di tambahkan');
+        if ($User) {
+            return redirect()->route('viewAllUser')->with('berhasilAdd', 'Data berhasil di tambahkan');
+        } else {
+            return redirect()->route('viewAllUser')->with('gagalAdd', 'Data gagal di tambahkan');
         }
     }
 
@@ -95,23 +95,32 @@ class UserController extends Controller
         //       ->where('id_user', $request->id)
         //       ->update(['nama'   => generateRandomString(),
         //                 'alamat' => generateRandomString()]);
+        $request->validate(
+            [
+                'username' => 'required|min:1',
+                'nama' => 'required|min:1',
+                'email' => 'required|email:dns',
+                'alamat' => 'required|min:1',
+                'password' => 'required|min:1'
+            ]
+        );
 
         $User = User::where('id_user', $request->id_user)->update(
             [
                 'username' => $request->username,
                 'nama' => $request->nama,
-                'alamat' => $request->alamat,
                 'email' => $request->email,
+                'alamat' => $request->alamat,
+                'password' => ($request->password != "" ? Hash::make($request->password) : $request->password),
                 'status' => $request->status
             ]
         );
 
-        if($User){
-            return redirect()->route('viewAllUser')->with('berhasil','Data berhasil di tambahkan');
-        }else{
-            return redirect()->route('viewAllUser')->with('gagal','Data gagal di tambahkan');
+        if ($User) {
+            return redirect()->route('viewAllUser')->with('berhasilUpdate', 'Data berhasil di update');
+        } else {
+            return redirect()->route('viewAllUser')->with('gagalUpdate', 'Data gagal di update');
         }
-
     }
 
     public function openAddPage()

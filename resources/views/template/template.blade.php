@@ -91,20 +91,37 @@
             $('#example').DataTable();
         });
 
-        @if (Session::has('berhasil'))
+        @if (Session::has('berhasilAdd'))
             toastr.options = {
                 "closeButton": true,
                 "progressBar": true
             }
-            toastr.success("{{ session('berhasil') }}")
+            toastr.success("{{ session('berhasilAdd') }}")
         @endif
 
-        @if (Session::has('gagal'))
+        @if (Session::has('gagalAdd'))
             toastr.options = {
                 "closeButton": true,
                 "progressBar": true
             }
-            toastr.error("{{ session('gagal') }}")
+            toastr.error("{{ session('gagalAdd') }}")
+        @endif
+
+        
+        @if (Session::has('berhasilUpdate'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.success("{{ session('berhasilUpdate') }}")
+        @endif
+
+        @if (Session::has('gagalUpdate'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('gagalUpdate') }}")
         @endif
 
     </script>
