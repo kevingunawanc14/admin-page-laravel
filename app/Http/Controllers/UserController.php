@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -53,7 +53,7 @@ class UserController extends Controller
 
         $request->validate(
             [
-                'username' => 'required|min:1',
+                'username' => ['required','min:1',Rule::unique('user')->ignore($request->id_user,'id_user')],
                 'nama' => 'required|min:1',
                 'email' => 'required|email:dns',
                 'alamat' => 'required|min:1',
@@ -97,7 +97,7 @@ class UserController extends Controller
         //                 'alamat' => generateRandomString()]);
         $request->validate(
             [
-                'username' => 'required|min:1',
+                'username' => ['required','min:1',Rule::unique('user')->ignore($request->id_user,'id_user')],
                 'nama' => 'required|min:1',
                 'email' => 'required|email:dns',
                 'alamat' => 'required|min:1'
