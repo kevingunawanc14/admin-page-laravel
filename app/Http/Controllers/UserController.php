@@ -100,8 +100,7 @@ class UserController extends Controller
                 'username' => 'required|min:1',
                 'nama' => 'required|min:1',
                 'email' => 'required|email:dns',
-                'alamat' => 'required|min:1',
-                'password' => 'required|min:1'
+                'alamat' => 'required|min:1'
             ]
         );
 
@@ -111,7 +110,7 @@ class UserController extends Controller
                 'nama' => $request->nama,
                 'email' => $request->email,
                 'alamat' => $request->alamat,
-                'password' => ($request->password != "" ? Hash::make($request->password) : $request->password),
+                'password' => ($request->passwordBaru != "" ? Hash::make($request->passwordBaru) : $request->passwordLama),
                 'status' => $request->status
             ]
         );

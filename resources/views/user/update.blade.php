@@ -78,9 +78,9 @@
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Password</label>
                                     <div class="col-sm-10">
-                                        <input name="password" value="" type="text"
+                                        <input name="passwordBaru" value="" type="text"
                                             class="form-control @error('password')is-invalid @enderror" id="inputText">
-                                        <input name="password" value="{{ $data->password }}" type="hidden"
+                                        <input name="passwordLama" value="{{ $data->password }}" type="hidden"
                                             class="form-control" id="inputText" >
                                         {{-- @if ($errors->get('password'))
                                             @foreach ($errors->get('password') as $error)

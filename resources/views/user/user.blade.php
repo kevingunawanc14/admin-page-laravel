@@ -8,6 +8,13 @@
             <div class="card-body">
                 <h5 class="card-title">Data User</h5>
 
+                <div class="mb-2">
+                    <a href="user/addPage" type="button" class="btn btn-success"><i class="ri-add-circle-line"></i></a>
+                    <a href="{{ route('deleteAllUser') }}" type="button" class="btn btn-danger"
+                        onclick="return confirm('Apakah Anda Yakin Menghapus Semua Data?');"><i
+                            class="ri-alert-line"></i></a>
+                </div>
+
                 <!-- Default Table -->
                 <table id="example" class="table">
                     <thead>
@@ -27,13 +34,14 @@
                                 <td>{{ $data->nama }}</td>
                                 <td>{{ $data->alamat }}</td>
                                 <td>{{ $data->email }}</td>
-                                <td>{{ $data->status == "1" ? "Aktif" :  "Non-aktif"   }}</td>
+                                <td>{{ $data->status == '1' ? 'Aktif' : 'Non-aktif' }}</td>
                                 {{-- <td>{{ ($usr->status ==1 ? "AKTIF" : ($usr->status == 2 ? )) }}</td> --}}
                                 {{-- ($usr->status ==1 ? "sama dengan 1" : ($usr->status == 2 ? "sama dengan 2" : ($usr->status == 3 ? "sama dengan 3" : "sama dengan 4" ))) --}}
                                 <td>
-                                    <a href="{{ route('updatePage',$data->id_user) }}" type="button" class="btn btn-secondary"><i
-                                            class="ri-settings-5-line"></i></a>
-                                    <a href="/profileUser/hapus/{{ $data->id_user }}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" type="button"
+                                    <a href="{{ route('updatePage', $data->id_user) }}" type="button"
+                                        class="btn btn-secondary"><i class="ri-settings-5-line"></i></a>
+                                    <a href="/profileUser/hapus/{{ $data->id_user }}"
+                                        onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" type="button"
                                         class="btn btn-danger"><i class="ri-delete-bin-5-line"></i></a>
                                 </td>
                             </tr>
@@ -41,8 +49,7 @@
                     </tbody>
                 </table>
                 <!-- End Default Table Example -->
-                <a href="user/addPage" type="button" class="btn btn-success"><i class="ri-add-circle-line"></i></a>
-                <a href="{{route('deleteAllUser')}}" type="button" class="btn btn-danger"  onclick="return confirm('Apakah Anda Yakin Menghapus Semua Data?');" ><i class="ri-alert-line" ></i></a>
+
             </div>
         </div>
 
