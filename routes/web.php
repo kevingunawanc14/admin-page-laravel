@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\ProductDetail;
 use App\Models\Produk;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductDetail;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ViewUserController;
-use App\Http\Controllers\UserController;
 
 
 // use App\Models\Produk;
@@ -23,10 +24,17 @@ use App\Http\Controllers\UserController;
 */
 
 // Navigasi
-Route::get('/', [HomeController::class, 'index'])->name('index');
+// Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/profileUser', [ViewUserController::class, 'profileUser'])->name('profileUser');
 Route::get('/viewAllUser', [UserController::class, 'viewAllUser'])->name('viewAllUser');
-Route::get('/viewAllProduct', [ProductController::class, 'index'])->name('index');
+// Route::get('/viewAllProduct', [ProductController::class, 'index'])->name('index');
+
+// User
+// login page
+Route::get('/', [UserController::class, 'loginPage'])->name('loginPage');
+// login function
+Route::post('login', [UserController::class, 'authenticate'])->name('actionLogin');
+
 
 // User
 // delete data user

@@ -124,6 +124,14 @@
             toastr.error("{{ session('gagalUpdate') }}")
         @endif
 
+        @if (Session::has('loginGagal'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('loginGagal') }}")
+        @endif
+
     </script>
 
     {{-- javascript --}}

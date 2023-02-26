@@ -4,13 +4,40 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+
+    public function loginPage()
+    {
+
+        return view('user/login');
+    }
+
+    public function authenticate(Request $request)
+    {
+        $data = [
+            'username' => $request->username,
+            'password' => $request->password
+        ];
+
+        // dd($data);
+
+        if (Auth::Attempt($data)) {
+            return redirect('/viewAllUser');
+        } else {
+            return redirect()->route('loginPage')->with('loginGagal', 'Username / password salah');
+        }
+    }
+
+
     public function index()
     {
         return view('user/user');
@@ -22,6 +49,8 @@ class UserController extends Controller
 
 
         return view('user/user', ['user' => $user]);
+
+
     }
 
     public function hapusUser($id_user)
@@ -53,7 +82,7 @@ class UserController extends Controller
 
         $request->validate(
             [
-                'username' => ['required','min:1',Rule::unique('user')->ignore($request->id_user,'id_user')],
+                'username' => ['required', 'min:1', Rule::unique('user')->ignore($request->id_user, 'id_user')],
                 'nama' => 'required|min:1',
                 'email' => 'required|email:dns',
                 'alamat' => 'required|min:1',
@@ -97,7 +126,7 @@ class UserController extends Controller
         //                 'alamat' => generateRandomString()]);
         $request->validate(
             [
-                'username' => ['required','min:1',Rule::unique('user')->ignore($request->id_user,'id_user')],
+                'username' => ['required', 'min:1', Rule::unique('user')->ignore($request->id_user, 'id_user')],
                 'nama' => 'required|min:1',
                 'email' => 'required|email:dns',
                 'alamat' => 'required|min:1'
