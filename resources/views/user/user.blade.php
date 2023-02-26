@@ -28,9 +28,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php $no = 1   @endphp
                         @foreach ($user as $data)
                             <tr>
-                                <th scope="row">{{ $data->id_user }}</th>
+                                <th scope="row">{{ $no++ }}</th>
                                 <td>{{ $data->nama }}</td>
                                 <td>{{ $data->alamat }}</td>
                                 <td>{{ $data->email }}</td>

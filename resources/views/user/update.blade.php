@@ -97,7 +97,7 @@
                                     <div class="col-sm-10">
                                         <div class="form-check form-switch mt-2">
                                             <input name="status" class="form-check-input" type="checkbox"
-                                                id="flexSwitchCheckDefault">
+                                                id="flexSwitchCheckDefault" {{ $data->status == "1" ? "checked" : "" }} >
                                         </div>
                                         {{-- @if ($errors->get('status'))
                                             @foreach ($errors->get('status') as $error)

@@ -140,7 +140,7 @@ class UserController extends Controller
                 'email' => $request->email,
                 'alamat' => $request->alamat,
                 'password' => ($request->passwordBaru != "" ? Hash::make($request->passwordBaru) : $request->passwordLama),
-                'status' => $request->status
+                'status' => $request->status != "" ? "1" : "0"
             ]
         );
 
