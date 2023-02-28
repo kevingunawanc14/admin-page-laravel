@@ -17,7 +17,6 @@ class UserController extends Controller
 
     public function loginPage()
     {
-
         return view('user/login');
     }
 
@@ -29,14 +28,33 @@ class UserController extends Controller
         ];
 
         // dd($data);
+        // dd(Hash::make($request->password));
 
         if (Auth::Attempt($data)) {
-            return redirect('/viewAllUser');
+            $request->session()->regenerate();
+
+            $dataSession = session()->all();
+
+            $idUser = $dataSession["login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d"];
+
+            $User = User::where('id_user', $idUser)->get();
+            // dd($User->first()->nama);
+            $namaUser = $User->first()->nama;
+
+            return redirect()->route('usersPage')->with('loginBerhasil', 'Selamat datang ' .$namaUser);
         } else {
             return redirect()->route('loginPage')->with('loginGagal', 'Username / password salah');
         }
     }
 
+    public function usersPage()
+    {
+        $user = User::select('*')->get();
+
+        // dd(session()->all());
+
+        return view('user/user', ['user' => $user]);
+    }
 
     public function index()
     {
@@ -47,10 +65,9 @@ class UserController extends Controller
     {
         $user = User::select('*')->get();
 
+        // dd(session()->all());
 
         return view('user/user', ['user' => $user]);
-
-
     }
 
     public function hapusUser($id_user)
@@ -167,6 +184,12 @@ class UserController extends Controller
         $dataUpdate = User::select('*')->where('id_user', $id)->first();
 
         return view('user/update', ['data' => $dataUpdate]);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route("loginPage");
     }
 }
 

@@ -9,8 +9,10 @@
                 <h5 class="card-title">Data User</h5>
 
                 <div class="mb-2">
-                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Add" href="user/addPage" type="button" class="btn btn-success"><i class="ri-add-circle-line" ></i></a>
-                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Delete All   " href="{{ route('deleteAllUser') }}" type="button" class="btn btn-danger"
+                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Add" href="user/addPage" type="button"
+                        class="btn btn-success"><i class="ri-add-circle-line"></i></a>
+                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Delete All   "
+                        href="{{ route('deleteAllUser') }}" type="button" class="btn btn-danger"
                         onclick="return confirm('Apakah Anda Yakin Menghapus Semua Data?');"><i
                             class="ri-alert-line"></i></a>
                 </div>
@@ -39,9 +41,11 @@
                                 {{-- <td>{{ ($usr->status ==1 ? "AKTIF" : ($usr->status == 2 ? )) }}</td> --}}
                                 {{-- ($usr->status ==1 ? "sama dengan 1" : ($usr->status == 2 ? "sama dengan 2" : ($usr->status == 3 ? "sama dengan 3" : "sama dengan 4" ))) --}}
                                 <td>
-                                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Update" href="{{ route('updatePage', $data->id_user) }}" type="button"
+                                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Update"
+                                        href="{{ route('updatePage', $data->id_user) }}" type="button"
                                         class="btn btn-secondary"><i class="ri-settings-5-line"></i></a>
-                                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" href="/profileUser/hapus/{{ $data->id_user }}"
+                                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"
+                                        href="/profileUser/hapus/{{ $data->id_user }}"
                                         onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" type="button"
                                         class="btn btn-danger"><i class="ri-delete-bin-5-line"></i></a>
                                 </td>
@@ -61,32 +65,57 @@
 
 @section('js')
     <script>
-        // function deleteUser() {
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
 
-        //     let text = "Data Akan Dihapus";
-        //     if (confirm(text) == true) {
-        //         text = "You pressed OK!";
-        //     } else {
-        //         text = "You canceled!";
-        //     }
+        @if (Session::has('berhasilAdd'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.success("{{ session('berhasilAdd') }}")
+        @endif
 
-        //     let idUser = document.getElementById("idUser").value
+        @if (Session::has('gagalAdd'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('gagalAdd') }}")
+        @endif
 
-        //     let Data = new FormData();
-        //     Data.append("idUser", idUser);
 
-        //     const xmlHttp = new XMLHttpRequest();
-        //     xmlHttp.onload = function() {
-        //         if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+        @if (Session::has('berhasilUpdate'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.success("{{ session('berhasilUpdate') }}")
+        @endif
 
-        //             alert("Data Berhasil Di Hapus")
+        @if (Session::has('gagalUpdate'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('gagalUpdate') }}")
+        @endif
 
-        //         } else {
-        //             alert("Error!");
-        //         }
-        //     }
-        //     xmlHttp.open("POST", "request/delete_ajax.php");
-        //     xmlHttp.send(Data);
-        // }
+        @if (Session::has('loginGagal'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('loginGagal') }}")
+        @endif
+
+        @if (Session::has('loginBerhasil'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.success("{{ session('loginBerhasil') }}")
+        @endif
     </script>
 @endsection
