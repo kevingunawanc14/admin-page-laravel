@@ -129,7 +129,7 @@
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                     <button type="reset" class="btn btn-secondary">Reset</button>
-                                    <a href="{{ route('viewAllUser') }}" class="btn btn-dark">Back</a>
+                                    <a href="{{ route('usersPage') }}" class="btn btn-dark">Back</a>
                                 </div>
                             </form><!-- End Horizontal Form -->
 

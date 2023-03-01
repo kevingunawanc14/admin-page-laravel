@@ -9,12 +9,12 @@
                 <h5 class="card-title">Data User</h5>
 
                 <div class="mb-2">
-                    {{-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="Add" href="user/addPage" type="button"
+                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Add" href="{{ route('addUserPage') }}" type="button"
                         class="btn btn-success"><i class="ri-add-circle-line"></i></a>
                     <a data-bs-toggle="tooltip" data-bs-placement="top" title="Delete All   "
                         href="{{ route('deleteAllUser') }}" type="button" class="btn btn-danger"
                         onclick="return confirm('Apakah Anda Yakin Menghapus Semua Data?');"><i
-                            class="ri-alert-line"></i></a> --}}
+                            class="ri-alert-line"></i></a>
                 </div>
 
                 <!-- Default Table -->
@@ -117,5 +117,22 @@
             }
             toastr.success("{{ session('loginBerhasil') }}")
         @endif
+
+        @if (Session::has('berhasilDeleteSemuaData'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.warning("{{ session('berhasilDeleteSemuaData') }}")
+        @endif
+
+        @if (Session::has('gagalDeleteSemuaData'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('gagalDeleteSemuaData') }}")
+        @endif
+
     </script>
 @endsection

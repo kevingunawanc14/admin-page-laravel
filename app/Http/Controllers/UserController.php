@@ -64,46 +64,13 @@ class UserController extends Controller
         return view('user/user', ['user' => $user]);
     }
 
-    public function index()
+    public function addUserPage()
     {
-        return view('user/user');
-    }
-
-    public function viewAllUser()
-    {
-        $user = User::select('*')->get();
-
-        // dd(session()->all());
-
-        return view('user/user', ['user' => $user]);
-    }
-
-    public function hapusUser($id_user)
-    {
-        $user = User::where('id_user', $id_user)
-            ->delete();
-
-        return redirect()->route('viewAllUser');
+        return view('user/add');
     }
 
     public function addUser(Request $request)
     {
-
-        // $validator = Validator::make($request->all(), [
-        //     'username' => 'required|min:5',
-        //     'nama' => 'required|min:5',
-        //     'email' => 'required',
-        //     'alamat' => 'required|min:5',
-        //     'password' => 'required|min:5'
-        // ]);
-
-        // if ($validator->fails()) {
-        //     return redirect('user/addPage')
-        //                 ->withErrors($validator)
-        //                 ->withInput();
-        // }
-
-        // dd($request);
 
         $request->validate(
             [
@@ -127,17 +94,40 @@ class UserController extends Controller
         ]);
 
         // return redirect()->route('viewuserdata')->with('message', 'Data update succeesfully');
+
         if ($User) {
-            return redirect()->route('viewAllUser')->with('berhasilAdd', 'Data berhasil di tambahkan');
+            return redirect()->route('usersPage')->with('berhasilAdd', 'Data berhasil di tambahkan');
         } else {
-            return redirect()->route('viewAllUser')->with('gagalAdd', 'Data gagal di tambahkan');
+            return redirect()->route('usersPage')->with('gagalAdd', 'Data gagal di tambahkan');
         }
     }
 
     public function deleteAllUser()
     {
 
-        DB::table('user')->truncate();
+        $deleteUser = User::truncate();
+
+        if ($deleteUser) {
+            return redirect()->route('usersPage')->with('berhasilDeleteSemuaData', 'Data berhasil di hapus semua');
+        } else {
+            return redirect()->route('usersPage')->with('gagalDeleteSemuaData', 'Data gagal di hapus semua');
+        }
+
+    }
+
+    // public function viewAllUser()
+    // {
+    //     $user = User::select('*')->get();
+
+    //     // dd(session()->all());
+
+    //     return view('user/user', ['user' => $user]);
+    // }
+
+    public function hapusUser($id_user)
+    {
+        $user = User::where('id_user', $id_user)
+            ->delete();
 
         return redirect()->route('viewAllUser');
     }
@@ -174,11 +164,6 @@ class UserController extends Controller
         } else {
             return redirect()->route('viewAllUser')->with('gagalUpdate', 'Data gagal di update');
         }
-    }
-
-    public function openAddPage()
-    {
-        return view('user/add');
     }
 
     public function openUpdatePage($id)
