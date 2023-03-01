@@ -115,21 +115,17 @@ class UserController extends Controller
 
     }
 
-    // public function viewAllUser()
-    // {
-    //     $user = User::select('*')->get();
-
-    //     // dd(session()->all());
-
-    //     return view('user/user', ['user' => $user]);
-    // }
-
-    public function hapusUser($id_user)
+    public function updateUserPage($id)
     {
-        $user = User::where('id_user', $id_user)
-            ->delete();
+        // dd($id);
 
-        return redirect()->route('viewAllUser');
+        // $user_data = UserdataModel::select('*')
+        //     ->where('id', $id)
+        //     ->first();
+
+        $dataUpdate = User::select('*')->where('id_user', $id)->first();
+
+        return view('user/update', ['data' => $dataUpdate]);
     }
 
     public function updateUser(Request $request)
@@ -160,35 +156,21 @@ class UserController extends Controller
         );
 
         if ($User) {
-            return redirect()->route('viewAllUser')->with('berhasilUpdate', 'Data berhasil di update');
+            return redirect()->route('usersPage')->with('berhasilUpdate', 'Data berhasil di update');
         } else {
-            return redirect()->route('viewAllUser')->with('gagalUpdate', 'Data gagal di update');
+            return redirect()->route('usersPage')->with('gagalUpdate', 'Data gagal di update');
         }
     }
 
-    public function openUpdatePage($id)
+    public function deleteUser($id_user)
     {
-        // dd($id);
+        User::where('id_user', $id_user)
+            ->delete();
 
-        // $user_data = UserdataModel::select('*')
-        //     ->where('id', $id)
-        //     ->first();
-
-        $dataUpdate = User::select('*')->where('id_user', $id)->first();
-
-        return view('user/update', ['data' => $dataUpdate]);
+        return redirect()->route('usersPage');
     }
 
 
-}
 
-function generateRandomString($length = 10)
-{
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $charactersLength = strlen($characters);
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[random_int(0, $charactersLength - 1)];
-    }
-    return $randomString;
+
 }

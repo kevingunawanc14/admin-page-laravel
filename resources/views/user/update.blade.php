@@ -11,7 +11,7 @@
                             <h5 class="card-title">Update User Form</h5>
 
                             <!-- Horizontal Form -->
-                            <form method="post" action="{{ route('updateDataUser') }}">
+                            <form method="post" action="{{ route('updateUser') }}">
                                 @csrf
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Username</label>
@@ -112,7 +112,7 @@
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                     <button type="reset" class="btn btn-secondary">Reset</button>
-                                    <a href="/viewAllUser" class="btn btn-dark">Back</a>
+                                    <a href="{{ route('usersPage') }}" class="btn btn-dark">Back</a>
                                 </div>
                             </form><!-- End Horizontal Form -->
 
