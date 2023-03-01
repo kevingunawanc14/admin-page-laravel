@@ -9,12 +9,12 @@
                 <h5 class="card-title">Data User</h5>
 
                 <div class="mb-2">
-                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Add" href="user/addPage" type="button"
+                    {{-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="Add" href="user/addPage" type="button"
                         class="btn btn-success"><i class="ri-add-circle-line"></i></a>
                     <a data-bs-toggle="tooltip" data-bs-placement="top" title="Delete All   "
                         href="{{ route('deleteAllUser') }}" type="button" class="btn btn-danger"
                         onclick="return confirm('Apakah Anda Yakin Menghapus Semua Data?');"><i
-                            class="ri-alert-line"></i></a>
+                            class="ri-alert-line"></i></a> --}}
                 </div>
 
                 <!-- Default Table -->
@@ -41,13 +41,13 @@
                                 {{-- <td>{{ ($usr->status ==1 ? "AKTIF" : ($usr->status == 2 ? )) }}</td> --}}
                                 {{-- ($usr->status ==1 ? "sama dengan 1" : ($usr->status == 2 ? "sama dengan 2" : ($usr->status == 3 ? "sama dengan 3" : "sama dengan 4" ))) --}}
                                 <td>
-                                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Update"
+                                    {{-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="Update"
                                         href="{{ route('updatePage', $data->id_user) }}" type="button"
                                         class="btn btn-secondary"><i class="ri-settings-5-line"></i></a>
                                     <a data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"
                                         href="/profileUser/hapus/{{ $data->id_user }}"
                                         onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" type="button"
-                                        class="btn btn-danger"><i class="ri-delete-bin-5-line"></i></a>
+                                        class="btn btn-danger"><i class="ri-delete-bin-5-line"></i></a> --}}
                                 </td>
                             </tr>
                         @endforeach

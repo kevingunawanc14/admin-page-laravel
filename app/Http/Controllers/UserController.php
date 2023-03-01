@@ -37,14 +37,22 @@ class UserController extends Controller
 
             $idUser = $dataSession["login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d"];
 
-            $User = User::where('id_user', $idUser)->get();
+            // $User = User::where('id_user', $idUser)->get();
             // dd($User->first()->nama);
-            $namaUser = $User->first()->nama;
+            // $namaUser = $User->first()->nama;
+
+            $namaUser = Auth::User()->nama;
 
             return redirect()->route('usersPage')->with('loginBerhasil', 'Selamat datang ' .$namaUser);
         } else {
             return redirect()->route('loginPage')->with('loginGagal', 'Username / password salah');
         }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route("loginPage");
     }
 
     public function usersPage()
@@ -186,11 +194,7 @@ class UserController extends Controller
         return view('user/update', ['data' => $dataUpdate]);
     }
 
-    public function logout()
-    {
-        Auth::logout();
-        return redirect()->route("loginPage");
-    }
+
 }
 
 function generateRandomString($length = 10)
