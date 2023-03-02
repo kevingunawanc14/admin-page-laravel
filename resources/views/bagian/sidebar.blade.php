@@ -14,26 +14,26 @@
 
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{url('')}}/profileUser">
+        <a class="nav-link collapsed" href="{{ route('profileUserPage') }}">
           <i class="ri-account-box-line"></i>
           <span>Profile</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{url('')}}/viewAllUser">
+        <a class="nav-link collapsed" href="{{ route('usersPage') }}">
           <i class="ri-hq-line"></i>
           <span>User</span>
         </a>
       </li>
 
       
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{{url('')}}/viewAllProduct">
+      {{-- <li class="nav-item">
+        <a class="nav-link collapsed" href="">
           <i class="ri-archive-line"></i>
           <span>Product</span>
         </a>
-      </li>
+      </li> --}}
 
       {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="pages-blank.html">

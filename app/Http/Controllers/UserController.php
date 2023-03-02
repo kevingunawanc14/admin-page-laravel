@@ -43,9 +43,9 @@ class UserController extends Controller
 
             $namaUser = Auth::User()->nama;
 
-            return redirect()->route('usersPage')->with('loginBerhasil', 'Selamat datang ' .$namaUser);
+            return redirect()->route('usersPage')->with('berhasil', 'Selamat datang ' . $namaUser);
         } else {
-            return redirect()->route('loginPage')->with('loginGagal', 'Username / password salah');
+            return redirect()->route('loginPage')->with('gagal', 'Username / password salah');
         }
     }
 
@@ -96,9 +96,9 @@ class UserController extends Controller
         // return redirect()->route('viewuserdata')->with('message', 'Data update succeesfully');
 
         if ($User) {
-            return redirect()->route('usersPage')->with('berhasilAdd', 'Data berhasil di tambahkan');
+            return redirect()->route('usersPage')->with('berhasil', 'Data berhasil di tambahkan');
         } else {
-            return redirect()->route('usersPage')->with('gagalAdd', 'Data gagal di tambahkan');
+            return redirect()->route('usersPage')->with('gagal', 'Data gagal di tambahkan');
         }
     }
 
@@ -108,11 +108,10 @@ class UserController extends Controller
         $deleteUser = User::truncate();
 
         if ($deleteUser) {
-            return redirect()->route('usersPage')->with('berhasilDeleteSemuaData', 'Data berhasil di hapus semua');
+            return redirect()->route('usersPage')->with('berhasil', 'Data berhasil di hapus semua');
         } else {
-            return redirect()->route('usersPage')->with('gagalDeleteSemuaData', 'Data gagal di hapus semua');
+            return redirect()->route('usersPage')->with('bahaya', 'Data gagal di hapus semua');
         }
-
     }
 
     public function updateUserPage($id)
@@ -156,21 +155,28 @@ class UserController extends Controller
         );
 
         if ($User) {
-            return redirect()->route('usersPage')->with('berhasilUpdate', 'Data berhasil di update');
+            return redirect()->route('usersPage')->with('berhasil', 'Data berhasil di update');
         } else {
-            return redirect()->route('usersPage')->with('gagalUpdate', 'Data gagal di update');
+            return redirect()->route('usersPage')->with('gagal', 'Data gagal di update');
         }
     }
 
     public function deleteUser($id_user)
     {
-        User::where('id_user', $id_user)
+        $delete = User::where('id_user', $id_user)
             ->delete();
 
-        return redirect()->route('usersPage');
+        if ($delete) {
+            return redirect()->route('usersPage')->with('berhasil', 'Data berhasil di hapus');
+        } else {
+            return redirect()->route('usersPage')->with('gagal', 'Data gagal di hapus');
+        }
     }
 
-
+    public function profileUserPage()
+    {
+        return view('user/profile');
+    }
 
 
 }

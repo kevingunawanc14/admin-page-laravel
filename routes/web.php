@@ -18,7 +18,7 @@ Route::get('user/users/add', [UserController::class, 'addUserPage'])->name('addU
 Route::post('user/users/add', [UserController::class, 'addUser'])->name('addUser');
 Route::get('user/users/update/{id_user}', [UserController::class, 'updateUserPage'])->name('updateUserPage')->middleware('auth');
 Route::post('user/users/update', [UserController::class, 'updateUser'])->name('updateUser')->middleware('auth');
-
+Route::get('user/users/profile', [UserController::class, 'profileUserPage'])->name('profileUserPage')->middleware('auth');;
 // Produk
 
 
