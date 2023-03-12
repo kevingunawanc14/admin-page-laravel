@@ -178,12 +178,7 @@ class UserController extends Controller
         return view('user/profile');
     }
 
-    public function productPage()
-    {
-        $user = User::select('*')->get();
 
-        return view('user/user', ['user' => $user]);
-    }
 
 
 }

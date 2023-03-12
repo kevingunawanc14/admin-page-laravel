@@ -31,7 +31,7 @@
        <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('productPage') }}">
           <i class="ri-archive-line"></i>
-          <span>Product</span>
+          <span>Product*</span>
         </a>
       </li> 
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -20,7 +21,7 @@ Route::get('user/users/update/{id_user}', [UserController::class, 'updateUserPag
 Route::post('user/users/update', [UserController::class, 'updateUser'])->name('updateUser')->middleware('auth');
 Route::get('user/users/profile', [UserController::class, 'profileUserPage'])->name('profileUserPage')->middleware('auth');;
 // Produk
-Route::get('user/product', [UserController::class, 'productPage'])->name('productPage')->middleware('auth');
+Route::get('product/product', [ProductController::class, 'productPage'])->name('productPage')->middleware('auth');
 
 
 
