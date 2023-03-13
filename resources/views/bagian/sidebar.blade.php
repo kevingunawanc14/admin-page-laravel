@@ -29,9 +29,9 @@
 
       
        <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('productPage') }}">
+        <a class="nav-link collapsed" href="{{ route('produkPage') }}">
           <i class="ri-archive-line"></i>
-          <span>Product*</span>
+          <span>Product</span>
         </a>
       </li> 
 

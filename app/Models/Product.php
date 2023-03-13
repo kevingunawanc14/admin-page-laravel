@@ -18,7 +18,9 @@ class Product extends Authenticatable
         return 'id_user';
     }
 
-    
+
+
+
 
 }
 

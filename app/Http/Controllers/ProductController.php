@@ -3,16 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
 {
-    public function productPage()
+    public function produkPage()
     {
         $product = Product::select('*')->get();
         // $product = "a";
 
         return view('product/product', ['product' => $product]);
+    }
+
+    public function addProdukPage()
+    {
+        return view('product/add');
     }
 
     public function addProduk(Request $request)
@@ -48,32 +55,15 @@ class ProductController extends Controller
         }
     }
 
-    public function deleteAllUser()
+    public function updateProdukPage($id)
     {
 
-        $deleteUser = Product::truncate();
+        $dataUpdate = Product::select('*')->where('id', $id)->first();
 
-        if ($deleteUser) {
-            return redirect()->route('productPage')->with('berhasil', 'Data berhasil di hapus semua');
-        } else {
-            return redirect()->route('productPage')->with('bahaya', 'Data gagal di hapus semua');
-        }
+        return view('product/update', ['data' => $dataUpdate]);
     }
 
-    public function updateUserPage($id)
-    {
-        // dd($id);
-
-        // $user_data = UserdataModel::select('*')
-        //     ->where('id', $id)
-        //     ->first();
-
-        $dataUpdate = Product::select('*')->where('id_user', $id)->first();
-
-        return view('user/update', ['data' => $dataUpdate]);
-    }
-
-    public function updateUser(Request $request)
+    public function updateProduk(Request $request)
     {
 
         // DB::table('user')
@@ -107,9 +97,9 @@ class ProductController extends Controller
         }
     }
 
-    public function deleteUser($id_user)
+    public function deleteProduk($id)
     {
-        $delete = Product::where('id_user', $id_user)
+        $delete = Product::where('id', $id_user)
             ->delete();
 
         if ($delete) {

@@ -22,8 +22,8 @@ Route::post('user/users/update', [UserController::class, 'updateUser'])->name('u
 Route::get('user/users/profile', [UserController::class, 'profileUserPage'])->name('profileUserPage')->middleware('auth');;
 
 // Produk
-Route::get('product', [ProductController::class, 'productPage'])->name('productPage')->middleware('auth');
-Route::get('product/delete-user/{id_user}', [ProductController::class, 'deleteProduk'])->name('deleteProduk')->middleware('auth');
+Route::get('product/product', [ProductController::class, 'produkPage'])->name('produkPage')->middleware('auth');
+Route::get('product/delete-produk/{id_user}', [ProductController::class, 'deleteProduk'])->name('deleteProduk')->middleware('auth');
 Route::get('product/add', [ProductController::class, 'addProdukPage'])->name('addProdukPage')->middleware('auth');;
 Route::post('product/add', [ProductController::class, 'addProduk'])->name('addProduk');
 Route::get('product/update/{id_user}', [ProductController::class, 'updateProdukPage'])->name('updateProdukPage')->middleware('auth');
