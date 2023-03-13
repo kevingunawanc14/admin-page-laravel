@@ -20,8 +20,14 @@ Route::post('user/users/add', [UserController::class, 'addUser'])->name('addUser
 Route::get('user/users/update/{id_user}', [UserController::class, 'updateUserPage'])->name('updateUserPage')->middleware('auth');
 Route::post('user/users/update', [UserController::class, 'updateUser'])->name('updateUser')->middleware('auth');
 Route::get('user/users/profile', [UserController::class, 'profileUserPage'])->name('profileUserPage')->middleware('auth');;
+
 // Produk
-Route::get('product/product', [ProductController::class, 'productPage'])->name('productPage')->middleware('auth');
+Route::get('product', [ProductController::class, 'productPage'])->name('productPage')->middleware('auth');
+Route::get('product/delete-user/{id_user}', [ProductController::class, 'deleteProduk'])->name('deleteProduk')->middleware('auth');
+Route::get('product/add', [ProductController::class, 'addUserPage'])->name('addProdukPage')->middleware('auth');;
+Route::post('product/add', [ProductController::class, 'addUser'])->name('addProduk');
+Route::get('product/update/{id_user}', [ProductController::class, 'updateProdukPage'])->name('updateProdukPage')->middleware('auth');
+Route::post('product/update', [ProductController::class, 'updateProduk'])->name('updateProduk')->middleware('auth');
 
 
 
