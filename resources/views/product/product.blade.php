@@ -1,4 +1,4 @@
-<!-- @dd($product);  -->
+@dd($product); 
 
 @extends('template.template')
 
