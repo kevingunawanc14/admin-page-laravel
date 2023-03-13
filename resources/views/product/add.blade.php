@@ -11,14 +11,13 @@
                             <h5 class="card-title">Add Produk Form</h5>
 
                             <!-- Horizontal Form -->
-                            <form method="post" action="{{ route('addUser') }}">
+                            <form method="post" action="{{ route('addProduk') }}">
                                 @csrf
                                 <div class="row mb-3">
                                     <label for="" class="col-sm-2 col-form-label">Nama</label>
                                     <div class="col-sm-10">
                                         <input name="nama" type="text"
-                                            class="form-control  @error('nama')is-invalid @enderror " id="inputText">
-
+                                            class="form-control  @error('nama')is-invalid @enderror " id="">
                                         @error('nama')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -27,9 +26,9 @@
                                 <div class="row mb-3">
                                     <label for="" class="col-sm-2 col-form-label">Harga</label>
                                     <div class="col-sm-10">
-                                        <input name="harga" type="text"
-                                            class="form-control  @error('harga')is-invalid @enderror " id="inputEmail">
-                                        @error('nama')
+                                        <input name="harga" type="number"
+                                            class="form-control  @error('harga')is-invalid @enderror " id="">
+                                        @error('harga')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -38,7 +37,7 @@
                                     <label for="" class="col-sm-2 col-form-label">Deskripsi</label>
                                     <div class="col-sm-10">
                                         <input name="deskripsi" type="text"
-                                            class="form-control @error('deskripsi')is-invalid @enderror" id="inputText">
+                                            class="form-control @error('deskripsi')is-invalid @enderror" id="">
                                         @error('deskripsi')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -48,7 +47,7 @@
                                     <label for="" class="col-sm-2 col-form-label">Image</label>
                                     <div class="col-sm-10">
                                         <input name="image" type="text"
-                                            class="form-control @error('image')is-invalid @enderror" id="inputText">
+                                            class="form-control @error('image')is-invalid @enderror" id="">
                                         @error('image')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -58,7 +57,7 @@
                                     <label for="" class="col-sm-2 col-form-label">Link</label>
                                     <div class="col-sm-10">
                                         <input name="link" type="text"
-                                            class="form-control @error('link')is-invalid @enderror" id="inputText">
+                                            class="form-control @error('link')is-invalid @enderror" id="">
                                         @error('link')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
