@@ -11,14 +11,14 @@
                             <h5 class="card-title">Update Produk Form</h5>
 
                             <!-- Horizontal Form -->
-                            <form method="post" action="{{ route('updateUser') }}">
+                            <form method="post" action="{{ route('updateProduk') }}">
                                 @csrf
                                 <div class="row mb-3">
                                     <label for="" class="col-sm-2 col-form-label">Nama</label>
                                     <div class="col-sm-10">
                                         <input name="nama" value="{{ $data->nama }}" type="text"
-                                            class="form-control  @error('username')is-invalid @enderror" id="inputText">
-                                        <input name="id_user" value="{{ $data->id_user }}" type="hidden"
+                                            class="form-control  @error('nama')is-invalid @enderror" id="inputText">
+                                        <input name="id" value="{{ $data->id }}" type="hidden"
                                             class="form-control" id="inputText">
                                         @error('nama')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -28,10 +28,10 @@
                                 <div class="row mb-3">
                                     <label for="" class="col-sm-2 col-form-label">Harga</label>
                                     <div class="col-sm-10">
-                                        <input name="Harga" value="{{ $data->harga }}" type="text"
-                                            class="form-control @error('nama')is-invalid @enderror" id="inputEmail">
+                                        <input name="harga" value="{{ $data->harga }}" type="text"
+                                            class="form-control @error('harga')is-invalid @enderror" id="inputEmail">
 
-                                        @error('nama')
+                                        @error('harga')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -40,9 +40,9 @@
                                     <label for="" class="col-sm-2 col-form-label">Deskripsi</label>
                                     <div class="col-sm-10">
                                         <input name="deskripsi" value="{{ $data->deskripsi }}" type="text"
-                                            class="form-control @error('email')is-invalid @enderror" id="inputText">
+                                            class="form-control @error('deskripsi')is-invalid @enderror" id="inputText">
 
-                                        @error('email')
+                                        @error('deskripsi')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
