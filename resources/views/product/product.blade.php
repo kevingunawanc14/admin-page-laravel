@@ -22,6 +22,7 @@
                         <th scope="col">Deskripsi</th>
                         <th scope="col">Image</th>
                         <th scope="col">Link</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -35,6 +36,7 @@
                         <td>{{ $data->deskripsi }}</td>
                         <td>{{ $data->image }}</td>
                         <td>{{ $data->link }}</td>
+                        <td>{{ $data->status == '1' ? 'Aktif' : 'Non-aktif' }}</td>
                         <td>
                             <a data-bs-toggle="tooltip" data-bs-placement="top" title="Update" href="{{ route('updateProdukPage', $data->id) }}" type="button" class="btn btn-secondary"><i class="ri-settings-5-line"></i></a>
                             <a data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" href="{{ route('deleteProduk', $data->id) }}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" type="button" class="btn btn-danger"><i class="ri-delete-bin-5-line"></i></a>
