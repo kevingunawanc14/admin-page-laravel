@@ -23,6 +23,7 @@ class ProductController extends Controller
 
     public function addProduk(Request $request)
     {
+        // dd($request);
 
         $request->validate(
             [
@@ -31,6 +32,7 @@ class ProductController extends Controller
                 'deskripsi' => 'required|min:1',
                 'image' => 'required|min:1',
                 'link' => 'required|min:1'
+
             ]
         );
 
@@ -39,7 +41,8 @@ class ProductController extends Controller
             'harga' => $request->harga,
             'deskripsi' => $request->deskripsi,
             'image' => $request->image,
-            'link' =>  $request->link
+            'link' =>  $request->link,
+            'status' => ($request->status != "" ? "1" : "0")
 
 
         ]);

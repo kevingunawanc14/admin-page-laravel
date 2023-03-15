@@ -63,6 +63,14 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Status</label>
+                                    <div class="col-sm-10">
+                                        <div class="form-check form-switch mt-2">
+                                            <input name="status" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                        </div>  
+                                    </div>
+                                </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                     <button type="reset" class="btn btn-secondary">Reset</button>
