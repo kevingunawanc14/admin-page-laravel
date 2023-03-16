@@ -28,7 +28,7 @@ class ProductController extends Controller
         $request->validate(
             [
                 'nama' => ['required', 'min:1', Rule::unique('product')->ignore($request->id, 'id')],
-                'harga' => 'required|min:2',
+                'harga' => 'required|min:1',
                 'deskripsi' => 'required|min:1',
                 'image' => 'required|min:1',
                 'link' => 'required|min:1'
@@ -36,13 +36,14 @@ class ProductController extends Controller
             ]
         );
 
+
         $produk = Product::create([
             'nama' => $request->nama,
             'harga' => $request->harga,
             'deskripsi' => $request->deskripsi,
             'image' => $request->image,
             'link' =>  $request->link,
-            'status' => ($request->status != "" ? "1" : "0")
+            'status' => $request->status != "" ? "1" : "0"
 
 
         ]);
@@ -90,7 +91,8 @@ class ProductController extends Controller
                 'harga' => $request->harga,
                 'deskripsi' => $request->deskripsi,
                 'image' => $request->image,
-                'link' => $request->link
+                'link' => $request->link,
+                'status' => $request->status != "" ? "1" : "0"
             ]
         );
 
