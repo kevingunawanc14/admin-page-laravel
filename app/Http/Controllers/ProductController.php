@@ -23,25 +23,28 @@ class ProductController extends Controller
 
     public function addProduk(Request $request)
     {
-        // dd($request);
+        // dd($request);    
 
+        // return $request->file('image')->store('post-image');
+        
         $request->validate(
             [
                 'nama' => ['required', 'min:1', Rule::unique('product')->ignore($request->id, 'id')],
                 'harga' => 'required|min:1',
                 'deskripsi' => 'required|min:1',
-                'image' => 'required|min:1',
+                'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
                 'link' => 'required|min:1'
 
             ]
         );
 
+        $imageName = $request->file('image')->store('images');
 
         $produk = Product::create([
             'nama' => $request->nama,
             'harga' => $request->harga,
             'deskripsi' => $request->deskripsi,
-            'image' => $request->image,
+            'image' => $imageName,
             'link' =>  $request->link,
             'status' => $request->status != "" ? "1" : "0"
 

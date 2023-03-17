@@ -11,7 +11,7 @@
                             <h5 class="card-title">Add Produk Form</h5>
 
                             <!-- Horizontal Form -->
-                            <form method="post" action="{{ route('addProduk') }}">
+                            <form method="post" action="{{ route('addProduk') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-3">
                                     <label for="" class="col-sm-2 col-form-label">Nama</label>
@@ -46,7 +46,7 @@
                                 <div class="row mb-3">
                                     <label for="" class="col-sm-2 col-form-label">Image</label>
                                     <div class="col-sm-10">
-                                        <input name="image" type="text"
+                                        <input name="image" type="file"
                                             class="form-control @error('image')is-invalid @enderror" id="">
                                         @error('image')
                                             <div class="invalid-feedback">{{ $message }}</div>

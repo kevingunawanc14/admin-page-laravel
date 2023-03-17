@@ -34,7 +34,7 @@
                         <td>{{ $data->nama }}</td>
                         <td>{{ $data->harga }}</td>
                         <td>{{ $data->deskripsi }}</td>
-                        <td>{{ $data->image }}</td>
+                        <td> <img src="{{ asset('storage/' .$data->image ) }}" alt="" class="img-fluid"></td>
                         <td>{{ $data->link }}</td>
                         <td>{{ $data->status == '1' ? 'Aktif' : 'Non-aktif' }}</td>
                         <td>
