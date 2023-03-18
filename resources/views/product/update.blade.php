@@ -11,7 +11,7 @@
                             <h5 class="card-title">Update Produk Form</h5>
 
                             <!-- Horizontal Form -->
-                            <form method="post" action="{{ route('updateProduk') }}">
+                            <form method="post" action="{{ route('updateProduk') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-3">
                                     <label for="" class="col-sm-2 col-form-label">Nama</label>
@@ -50,7 +50,7 @@
                                 <div class="row mb-3">
                                     <label for="" class="col-sm-2 col-form-label">Image</label>
                                     <div class="col-sm-10">
-                                        <input name="image" value="{{ $data->image }}" type="text"
+                                        <input name="image" value="{{ $data->image }}" type="file"
                                             class="form-control @error('image')is-invalid @enderror" id="inputText">
 
                                         @error('image')
@@ -77,14 +77,6 @@
                                             <input name="status" class="form-check-input" type="checkbox"
                                                 id="flexSwitchCheckDefault" {{ $data->status == "1" ? "checked" : "" }} >
                                         </div>
-                                        {{-- @if ($errors->get('status'))
-                                            @foreach ($errors->get('status') as $error)
-                                                <p class="alert alert-danger mt-1">{{ $error }}</p>
-                                            @endforeach
-                                        @endif --}}
-                                        {{-- @error('status')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror --}}
                                     </div>
                                 </div>
                                 <div class="text-center">

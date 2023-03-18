@@ -80,20 +80,21 @@ class ProductController extends Controller
                 'nama' => ['required', 'min:1', Rule::unique('product')->ignore($request->id, 'id')],
                 'harga' => 'required|min:1',
                 'deskripsi' => 'required|min:1',
-                'image' => 'required|min:1',
+                'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
                 'link' => 'required|min:1'
 
             ]
         );
 
         // dd("*");
+        $imageName = $request->file('image')->store('images');
 
         $produk = Product::where('id', $request->id)->update(
             [
                 'nama' => $request->nama,
                 'harga' => $request->harga,
                 'deskripsi' => $request->deskripsi,
-                'image' => $request->image,
+                'image' => $imageName,
                 'link' => $request->link,
                 'status' => $request->status != "" ? "1" : "0"
             ]
