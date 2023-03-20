@@ -23,12 +23,19 @@ Route::get('user/view/profile', [UserController::class, 'profileUserPage'])->nam
 
 // Produk
 Route::get('product/view', [ProductController::class, 'produkPage'])->name('produkPage')->middleware('auth');
-Route::get('product/delete-produk/{id_user}', [ProductController::class, 'deleteProduk'])->name('deleteProduk')->middleware('auth');
+Route::get('product/delete-produk/{id_produk}', [ProductController::class, 'deleteProduk'])->name('deleteProduk')->middleware('auth');
 Route::get('product/add', [ProductController::class, 'addProdukPage'])->name('addProdukPage')->middleware('auth');;
 Route::post('product/add', [ProductController::class, 'addProduk'])->name('addProduk');
-Route::get('product/update/{id_user}', [ProductController::class, 'updateProdukPage'])->name('updateProdukPage')->middleware('auth');
+Route::get('product/update/{id_produk}', [ProductController::class, 'updateProdukPage'])->name('updateProdukPage')->middleware('auth');
 Route::post('product/update', [ProductController::class, 'updateProduk'])->name('updateProduk')->middleware('auth');
 
+// Katalog
+Route::get('catalog/view', [CatalogController::class, 'catalogPage'])->name('catalogPage')->middleware('auth');
+Route::get('catalog/delete-catalog/{id}', [CatalogController::class, 'deleteCatalog'])->name('deleteCatalog')->middleware('auth');
+Route::get('catalog/add', [CatalogController::class, 'addProdukPage'])->name('addCatalogPage')->middleware('auth');;
+Route::post('catalog/add', [CatalogController::class, 'addCatalog'])->name('addCatalog');
+Route::get('catalog/update/{id}', [CatalogController::class, 'updateCatalogPage'])->name('updateCatalogPage')->middleware('auth');
+Route::post('catalog/update', [CatalogController::class, 'updateCatalog'])->name('updateCatalog')->middleware('auth');
 
 
 
