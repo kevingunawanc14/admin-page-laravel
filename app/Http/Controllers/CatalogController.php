@@ -70,19 +70,19 @@ class CatalogController extends Controller
                 'nama' => ['required', 'min:1', Rule::unique('catalog')->ignore($request->id, 'id')],
                 'judul' => 'required|min:1',
                 'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-                'pdf' =>  'required|min:1',
-                'status' => 'required|min:1'
+                'pdf' =>  'required|mimes:pdf|max:2048'
             ]
         );
 
         $imageName = $request->file('image')->store('images');
+        $pdfName = $request->file('pdf')->store('pdf');
 
         $catalog = Catalog::where('id', $request->id)->update(
             [
                 'nama' => $request->nama,
                 'judul' => $request->judul,
                 'image' => $imageName,
-                'pdf' => $request->pdf,
+                'pdf' => $pdfName,
                 'status' => $request->status != "" ? "1" : "0"
             ]
         );
