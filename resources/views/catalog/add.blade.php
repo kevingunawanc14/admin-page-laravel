@@ -8,10 +8,10 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Add Produk Form</h5>
+                            <h5 class="card-title">Add Catalog Form</h5>
 
                             <!-- Horizontal Form -->
-                            <form method="post" action="{{ route('addProduk') }}" enctype="multipart/form-data">
+                            <form method="post" action="{{ route('addCatalog') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-3">
                                     <label for="" class="col-sm-2 col-form-label">Nama</label>
@@ -24,21 +24,11 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="" class="col-sm-2 col-form-label">Harga</label>
+                                    <label for="" class="col-sm-2 col-form-label">Judul</label>
                                     <div class="col-sm-10">
-                                        <input name="harga" type="number"
-                                            class="form-control  @error('harga')is-invalid @enderror " id="">
-                                        @error('harga')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="" class="col-sm-2 col-form-label">Deskripsi</label>
-                                    <div class="col-sm-10">
-                                        <input name="deskripsi" type="text"
-                                            class="form-control @error('deskripsi')is-invalid @enderror" id="">
-                                        @error('deskripsi')
+                                        <input name="judul" type="text"
+                                            class="form-control  @error('judul')is-invalid @enderror " id="">
+                                        @error('judul')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -54,11 +44,11 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="" class="col-sm-2 col-form-label">Link</label>
+                                    <label for="" class="col-sm-2 col-form-label">PDF</label>
                                     <div class="col-sm-10">
-                                        <input name="link" type="text"
-                                            class="form-control @error('link')is-invalid @enderror" id="">
-                                        @error('link')
+                                        <input name="pdf" type="file"
+                                            class="form-control @error('pdf')is-invalid @enderror" id="">
+                                        @error('pdf')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -74,7 +64,7 @@
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                     <button type="reset" class="btn btn-secondary">Reset</button>
-                                    <a href="{{ route('produkPage') }}" class="btn btn-dark">Back</a>
+                                    <a href="{{ route('catalogPage') }}" class="btn btn-dark">Back</a>
                                 </div>
                             </form><!-- End Horizontal Form -->
 

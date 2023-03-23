@@ -8,10 +8,10 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Update Produk Form</h5>
+                            <h5 class="card-title">Update Catalog Form</h5>
 
                             <!-- Horizontal Form -->
-                            <form method="post" action="{{ route('updateProduk') }}" enctype="multipart/form-data">
+                            <form method="post" action="{{ route('updateCatalog') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-3">
                                     <label for="" class="col-sm-2 col-form-label">Nama</label>
@@ -26,23 +26,12 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="" class="col-sm-2 col-form-label">Harga</label>
+                                    <label for="" class="col-sm-2 col-form-label">Judul</label>
                                     <div class="col-sm-10">
-                                        <input name="harga" value="{{ $data->harga }}" type="text"
+                                        <input name="judul" value="{{ $data->judul }}" type="text"
                                             class="form-control @error('harga')is-invalid @enderror" id="inputEmail">
 
-                                        @error('harga')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="" class="col-sm-2 col-form-label">Deskripsi</label>
-                                    <div class="col-sm-10">
-                                        <input name="deskripsi" value="{{ $data->deskripsi }}" type="text"
-                                            class="form-control @error('deskripsi')is-invalid @enderror" id="inputText">
-
-                                        @error('deskripsi')
+                                        @error('judul')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -50,7 +39,7 @@
                                 <div class="row mb-3">
                                     <label for="" class="col-sm-2 col-form-label">Image</label>
                                     <div class="col-sm-10">
-                                        <input name="image" value="{{ $data->image }}" type="file"
+                                        <input name="image" value="{{ $data->image }}" type="text"
                                             class="form-control @error('image')is-invalid @enderror" id="inputText">
 
                                         @error('image')
@@ -59,13 +48,12 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="" class="col-sm-2 col-form-label">Link</label>
+                                    <label for="" class="col-sm-2 col-form-label">PDF</label>
                                     <div class="col-sm-10">
-                                        <input name="link" value="{{ $data->link }}" type="text"
-                                            class="form-control @error('link')is-invalid @enderror" id="inputText">
+                                        <input name="pdf" value="{{ $data->pdf }}" type="file"
+                                            class="form-control @error('pdf')is-invalid @enderror" id="inputText">
 
-
-                                        @error('link')
+                                        @error('pdf')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -82,7 +70,7 @@
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                     <button type="reset" class="btn btn-secondary">Reset</button>
-                                    <a href="{{ route('produkPage') }}" class="btn btn-dark">Back</a>
+                                    <a href="{{ route('catalogPage') }}" class="btn btn-dark">Back</a>
                                 </div>
                             </form>
                             <!-- End Horizontal Form -->

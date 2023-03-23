@@ -36,7 +36,7 @@
       </li> 
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('produkPage') }}">
+        <a class="nav-link collapsed" href="{{ route('catalogPage') }}">
           <i class="ri-file-pdf-line"></i>
           <span>Catalog</span>
         </a>
