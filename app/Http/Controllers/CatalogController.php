@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Catalog;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 class CatalogController extends Controller
 {
@@ -65,6 +66,17 @@ class CatalogController extends Controller
     public function updateCatalog(Request $request)
     {
 
+        $catalog = Catalog::select('*')->where('id', $request->id)->first();
+
+
+        // Storage::exists(public_path('storage/'.$product['image']))
+        if (Storage::exists($catalog['image'])) {
+            // dd("path ditemukan");
+            Storage::delete($catalog['image']);
+        } else {
+            // dd("path tidak ditemukan");
+        }
+
         $request->validate(
             [
                 'nama' => ['required', 'min:1', Rule::unique('catalog')->ignore($request->id, 'id')],
@@ -97,6 +109,16 @@ class CatalogController extends Controller
 
     public function deleteCatalog($id)
     {
+
+        $catalog = Catalog::select('*')->where('id', $id)->first();
+
+        if (Storage::exists($catalog['image'])) {
+            // dd("path ditemukan");
+            Storage::delete($catalog['image']);
+        } else {
+            // dd("path tidak ditemukan");
+        }
+
         $delete = Catalog::where('id', $id)
             ->delete();
 
