@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -38,7 +39,7 @@ class ProductController extends Controller
             ]
         );
 
-        $imageName = $request->file('image')->store('images');
+        $imageName = $request->file('image')->store('folderGambar');
 
         $produk = Product::create([
             'nama' => $request->nama,
@@ -75,6 +76,25 @@ class ProductController extends Controller
 
         // dd("*");
 
+        $product = Product::select('*')->where('id', $request->id)->first();
+
+        // $a = Storage::delete(public_path()$product['images']);
+        // dd($product);
+        // dd($product['image']);
+
+        // dd(public_path('storage/'.$product['image']));
+
+        // Storage::exists(public_path('storage/'.$product['image']))
+        if (Storage::exists($product['image'])) {
+            // dd("path ditemukan");
+            Storage::delete($product['image']);
+        }else{
+            // dd("path tidak ditemukan");
+        }
+        // dd($product);
+
+        // dd($a);
+
         $request->validate(
             [
                 'nama' => ['required', 'min:1', Rule::unique('product')->ignore($request->id, 'id')],
@@ -87,7 +107,7 @@ class ProductController extends Controller
         );
 
         // dd("*");
-        $imageName = $request->file('image')->store('images');
+        $imageName = $request->file('image')->store('folderGambar');
 
         $produk = Product::where('id', $request->id)->update(
             [
@@ -110,10 +130,19 @@ class ProductController extends Controller
 
     public function deleteProduk($id)
     {
-        $delete = Product::where('id', $id)
-            ->delete();
+      
+        
+        $product = Product::select('*')->where('id',$id)->first();
 
-        // dd($delete);
+        if (Storage::exists($product['image'])) {
+            // dd("path ditemukan");
+            Storage::delete($product['image']);
+        }else{
+            // dd("path tidak ditemukan");
+        }
+
+        $delete = Product::where('id', $id)
+        ->delete();
 
         if ($delete) {
             return redirect()->route('produkPage')->with('berhasil', 'Data berhasil di hapus');
