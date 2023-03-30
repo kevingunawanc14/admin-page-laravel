@@ -70,9 +70,10 @@ class CatalogController extends Controller
 
 
         // Storage::exists(public_path('storage/'.$product['image']))
-        if (Storage::exists($catalog['image'])) {
+        if (Storage::exists($catalog['image']) OR Storage::exists($catalog['pdf'])) {
             // dd("path ditemukan");
             Storage::delete($catalog['image']);
+            Storage::delete($catalog['pdf']);
         } else {
             // dd("path tidak ditemukan");
         }
@@ -112,9 +113,11 @@ class CatalogController extends Controller
 
         $catalog = Catalog::select('*')->where('id', $id)->first();
 
-        if (Storage::exists($catalog['image'])) {
+        if (Storage::exists($catalog['image']) OR Storage::exists($catalog['pdf']) ) {
             // dd("path ditemukan");
             Storage::delete($catalog['image']);
+            Storage::delete($catalog['pdf']);
+
         } else {
             // dd("path tidak ditemukan");
         }
