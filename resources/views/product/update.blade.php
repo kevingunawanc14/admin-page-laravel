@@ -50,8 +50,12 @@
                                 <div class="row mb-3">
                                     <label for="" class="col-sm-2 col-form-label">Image</label>
                                     <div class="col-sm-10">
+
+                                        <img class="mb-3" src="{{ asset('storage/' .$data->image ) }}" alt="" width="100px" >
+
                                         <input name="image" value="{{ $data->image }}" type="file"
                                             class="form-control @error('image')is-invalid @enderror" id="inputText">
+
 
                                         @error('image')
                                             <div class="invalid-feedback">{{ $message }}</div>
