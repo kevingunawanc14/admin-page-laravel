@@ -51,11 +51,14 @@
                                     <label for="" class="col-sm-2 col-form-label">Image</label>
                                     <div class="col-sm-10">
 
-                                        <img class="mb-3" src="{{ asset('storage/' .$data->image ) }}" alt="" width="100px" >
+                                        <img class="" src="{{ asset('storage/' . $data->image) }}" alt=""
+                                            width="100px">
 
-                                        <input name="image" value="{{ $data->image }}" type="file"
-                                            class="form-control @error('image')is-invalid @enderror" id="inputText">
+                                        <input name="image" value="" type="file"
+                                            class="form-control @error('image')is-invalid @enderror mt-3" id="inputText">
 
+                                        <input name="imageLama" value="{{ $data->image }}" type="hidden"
+                                            class="form-control" id="inputText">
 
                                         @error('image')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -79,7 +82,7 @@
                                     <div class="col-sm-10">
                                         <div class="form-check form-switch mt-2">
                                             <input name="status" class="form-check-input" type="checkbox"
-                                                id="flexSwitchCheckDefault" {{ $data->status == "1" ? "checked" : "" }} >
+                                                id="flexSwitchCheckDefault" {{ $data->status == '1' ? 'checked' : '' }}>
                                         </div>
                                     </div>
                                 </div>
@@ -100,5 +103,4 @@
         </section>
 
     </main>
-
 @endsection

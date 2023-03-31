@@ -27,7 +27,7 @@ class ProductController extends Controller
         // dd($request);    
 
         // return $request->file('image')->store('post-image');
-        
+
         $request->validate(
             [
                 'nama' => ['required', 'min:1', Rule::unique('product')->ignore($request->id, 'id')],
@@ -85,29 +85,52 @@ class ProductController extends Controller
         // dd(public_path('storage/'.$product['image']));
 
         // Storage::exists(public_path('storage/'.$product['image']))
-        if (Storage::exists($product['image'])) {
-            // dd("path ditemukan");
-            Storage::delete($product['image']);
-        }else{
-            // dd("path tidak ditemukan");
+
+        if ($request->image != "") {
+            if (Storage::exists($product['image'])) {
+                // dd("path ditemukan");
+                Storage::delete($product['image']);
+            } else {
+                // dd("path tidak ditemukan");
+            }
+
+            $request->validate(
+                [
+                    'nama' => ['required', 'min:1', Rule::unique('product')->ignore($request->id, 'id')],
+                    'harga' => 'required|min:1',
+                    'deskripsi' => 'required|min:1',
+                    'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+                    'link' => 'required|min:1'
+    
+                ]
+            );
+
+            $imageName = $request->file('image')->store('folderGambar');
+
+        } else {
+
+            $imageName = $request->imageLama;
+
+            $request->validate(
+                [
+                    'nama' => ['required', 'min:1', Rule::unique('product')->ignore($request->id, 'id')],
+                    'harga' => 'required|min:1',
+                    'deskripsi' => 'required|min:1',
+                    'link' => 'required|min:1'
+    
+                ]
+            );
         }
+
+        // dd($imageName);
+
         // dd($product);
 
         // dd($a);
 
-        $request->validate(
-            [
-                'nama' => ['required', 'min:1', Rule::unique('product')->ignore($request->id, 'id')],
-                'harga' => 'required|min:1',
-                'deskripsi' => 'required|min:1',
-                'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-                'link' => 'required|min:1'
-
-            ]
-        );
+    
 
         // dd("*");
-        $imageName = $request->file('image')->store('folderGambar');
 
         $produk = Product::where('id', $request->id)->update(
             [
@@ -130,19 +153,19 @@ class ProductController extends Controller
 
     public function deleteProduk($id)
     {
-      
-        
-        $product = Product::select('*')->where('id',$id)->first();
+
+
+        $product = Product::select('*')->where('id', $id)->first();
 
         if (Storage::exists($product['image'])) {
             // dd("path ditemukan");
             Storage::delete($product['image']);
-        }else{
+        } else {
             // dd("path tidak ditemukan");
         }
 
         $delete = Product::where('id', $id)
-        ->delete();
+            ->delete();
 
         if ($delete) {
             return redirect()->route('produkPage')->with('berhasil', 'Data berhasil di hapus');
