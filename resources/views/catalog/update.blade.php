@@ -40,8 +40,9 @@
                                     <label for="" class="col-sm-2 col-form-label">Image</label>
                                     <div class="col-sm-10">
 
-                                        <img class="mb-3" src="{{ asset('storage/' .$data->image ) }}" alt="" width="100px" >
-                                        
+                                        <img class="mb-3" src="{{ asset('storage/' . $data->image) }}" alt=""
+                                            width="100px">
+
                                         <input name="image" value="{{ $data->image }}" type="file"
                                             class="form-control @error('image')is-invalid @enderror" id="inputText">
 
@@ -53,8 +54,11 @@
                                 <div class="row mb-3">
                                     <label for="" class="col-sm-2 col-form-label">PDF</label>
                                     <div class="col-sm-10">
+                                        <a class="mb-3" href="{{ asset('storage/' . $data->pdf) }}" target="_blank"> {{ $data->pdf }}
+                                        </a>
+
                                         <input name="pdf" value="{{ $data->pdf }}" type="file"
-                                            class="form-control @error('pdf')is-invalid @enderror" id="inputText">
+                                            class="form-control @error('pdf')is-invalid @enderror mt-3" id="inputText">
 
                                         @error('pdf')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -66,7 +70,7 @@
                                     <div class="col-sm-10">
                                         <div class="form-check form-switch mt-2">
                                             <input name="status" class="form-check-input" type="checkbox"
-                                                id="flexSwitchCheckDefault" {{ $data->status == "1" ? "checked" : "" }} >
+                                                id="flexSwitchCheckDefault" {{ $data->status == '1' ? 'checked' : '' }}>
                                         </div>
                                     </div>
                                 </div>
@@ -87,5 +91,4 @@
         </section>
 
     </main>
-
 @endsection
