@@ -39,7 +39,7 @@ class ProductController extends Controller
             ]
         );
 
-        $imageName = $request->file('image')->store('folderGambar');
+        $imageName = $request->file('image')->store('folderImageProduct');
 
         $produk = Product::create([
             'nama' => $request->nama,
@@ -94,6 +94,7 @@ class ProductController extends Controller
                 // dd("path tidak ditemukan");
             }
 
+
             $request->validate(
                 [
                     'nama' => ['required', 'min:1', Rule::unique('product')->ignore($request->id, 'id')],
@@ -101,15 +102,15 @@ class ProductController extends Controller
                     'deskripsi' => 'required|min:1',
                     'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
                     'link' => 'required|min:1'
-    
+
                 ]
             );
 
-            $imageName = $request->file('image')->store('folderGambar');
-
+            $imageName = $request->file('image')->store('folderImageProduct');
         } else {
 
             $imageName = $request->imageLama;
+
 
             $request->validate(
                 [
@@ -117,7 +118,7 @@ class ProductController extends Controller
                     'harga' => 'required|min:1',
                     'deskripsi' => 'required|min:1',
                     'link' => 'required|min:1'
-    
+
                 ]
             );
         }
@@ -128,7 +129,6 @@ class ProductController extends Controller
 
         // dd($a);
 
-    
 
         // dd("*");
 

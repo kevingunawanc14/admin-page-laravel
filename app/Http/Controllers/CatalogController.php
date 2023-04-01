@@ -35,8 +35,8 @@ class CatalogController extends Controller
         );
 
 
-        $imageName = $request->file('image')->store('images');
-        $pdfName = $request->file('pdf')->store('pdf');
+        $imageName = $request->file('image')->store('folderImageCatalog');
+        $pdfName = $request->file('pdf')->store('folderPDFCatalog');
 
 
         $catalog = Catalog::create([
@@ -68,27 +68,74 @@ class CatalogController extends Controller
 
         $catalog = Catalog::select('*')->where('id', $request->id)->first();
 
+        if ($request->image != "") {
+            // Storage::exists(public_path('storage/'.$product['image']))
+            if (Storage::exists($catalog['image'])) {
+                // dd("path ditemukan");
+                Storage::delete($catalog['image']);
+            } else {
+                // dd("path tidak ditemukan");
+            }
 
-        // Storage::exists(public_path('storage/'.$product['image']))
-        if (Storage::exists($catalog['image']) OR Storage::exists($catalog['pdf'])) {
-            // dd("path ditemukan");
-            Storage::delete($catalog['image']);
-            Storage::delete($catalog['pdf']);
+            $request->validate(
+                [
+                    'nama' => ['required', 'min:1', Rule::unique('catalog')->ignore($request->id, 'id')],
+                    'judul' => 'required|min:1',
+                    'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+                ]
+            );
+
+            $imageName = $request->file('image')->store('folderImageCatalog');
+
         } else {
-            // dd("path tidak ditemukan");
+
+            $imageName = $request->imageLama;
+
+            $request->validate(
+                [
+                    'nama' => ['required', 'min:1', Rule::unique('catalog')->ignore($request->id, 'id')],
+                    'judul' => 'required|min:1',
+                    
+                ]
+            );
+
         }
 
-        $request->validate(
-            [
-                'nama' => ['required', 'min:1', Rule::unique('catalog')->ignore($request->id, 'id')],
-                'judul' => 'required|min:1',
-                'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-                'pdf' =>  'required|mimes:pdf|max:2048'
-            ]
-        );
+        if ($request->pdf != "") {
+            // Storage::exists(public_path('storage/'.$product['image']))
+            if (Storage::exists($catalog['pdf'])) {
+                // dd("path ditemukan");
+                Storage::delete($catalog['pdf']);
+            } else {
+                // dd("path tidak ditemukan");
+            }
 
-        $imageName = $request->file('image')->store('images');
-        $pdfName = $request->file('pdf')->store('pdf');
+            $pdfName = $request->file('pdf')->store('folderPDFCatalog');
+
+            $request->validate(
+                [
+                    'nama' => ['required', 'min:1', Rule::unique('catalog')->ignore($request->id, 'id')],
+                    'judul' => 'required|min:1',
+                    'pdf' =>  'required|mimes:pdf|max:2048'
+                ]
+            );
+
+        } else {
+
+            $pdfName = $request->pdfLama;
+
+            $request->validate(
+                [
+                    'nama' => ['required', 'min:1', Rule::unique('catalog')->ignore($request->id, 'id')],
+                    'judul' => 'required|min:1',
+                ]
+            );
+            
+        }
+
+
+  
+
 
         $catalog = Catalog::where('id', $request->id)->update(
             [
@@ -113,11 +160,10 @@ class CatalogController extends Controller
 
         $catalog = Catalog::select('*')->where('id', $id)->first();
 
-        if (Storage::exists($catalog['image']) OR Storage::exists($catalog['pdf']) ) {
+        if (Storage::exists($catalog['image']) or Storage::exists($catalog['pdf'])) {
             // dd("path ditemukan");
             Storage::delete($catalog['image']);
             Storage::delete($catalog['pdf']);
-
         } else {
             // dd("path tidak ditemukan");
         }
