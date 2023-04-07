@@ -41,6 +41,14 @@
           <span>Catalog</span>
         </a>
       </li> 
+      
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('teamPage') }}">
+          <i class="ri-team-line"></i>
+          <span>Team</span>
+        </a>
+      </li> 
 
       {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="pages-blank.html">

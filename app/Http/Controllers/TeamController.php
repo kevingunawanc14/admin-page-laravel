@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Team;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class TeamController extends Controller
 {
@@ -11,7 +12,7 @@ class TeamController extends Controller
     {
         $team = Team::select('*')->get();
 
-        return view('team/team', ['product' => $team]);
+        return view('team/team', ['team' => $team]);
     }
 
     public function addTeamPage()
@@ -24,7 +25,7 @@ class TeamController extends Controller
 
         $request->validate(
             [
-                'nama' => ['required', 'min:1', Rule::unique('product')->ignore($request->id, 'id')],
+                'nama' => ['required', 'min:1', Rule::unique('team')->ignore($request->id, 'id')],
                 'deskripsi' => 'required|min:1',
                 'jabatan' => 'required|min:1',
                 'linkedin' => 'required|min:1',
@@ -83,7 +84,7 @@ class TeamController extends Controller
         } else {
             return redirect()->route('teamPage')->with('gagal', 'Data gagal di update');
         }
-        
+
     }
 
     public function deleteTeam($id)

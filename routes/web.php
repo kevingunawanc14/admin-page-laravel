@@ -40,11 +40,11 @@ Route::post('catalog/update', [CatalogController::class, 'updateCatalog'])->name
 
 // Team
 Route::get('team/view', [TeamController::class, 'teamPage'])->name('teamPage')->middleware('auth');
-Route::get('team/delete-team/{id}', [TeamController::class, 'deleteteam'])->name('deleteteam')->middleware('auth');
-Route::get('team/add', [TeamController::class, 'addteamPage'])->name('addteamPage')->middleware('auth');;
-Route::post('team/add', [TeamController::class, 'addteam'])->name('addteam');
-Route::get('team/update/{id}', [TeamController::class, 'updateteamPage'])->name('updateteamPage')->middleware('auth');
-Route::post('team/update', [TeamController::class, 'updateteam'])->name('updateteam')->middleware('auth');
+Route::get('team/delete-team/{id}', [TeamController::class, 'deleteTeam'])->name('deleteTeam')->middleware('auth');
+Route::get('team/add', [TeamController::class, 'addTeamPage'])->name('addTeamPage')->middleware('auth');;
+Route::post('team/add', [TeamController::class, 'addTeam'])->name('addTeam');
+Route::get('team/update/{id}', [TeamController::class, 'updateTeamPage'])->name('updateTeamPage')->middleware('auth');
+Route::post('team/update', [TeamController::class, 'updateTeam'])->name('updateTeam')->middleware('auth');
 
 
 
