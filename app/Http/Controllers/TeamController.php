@@ -2,172 +2,101 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
-    public function produkPage()
+    public function teamPage()
     {
-        $product = Product::select('*')->get();
-        // $product = "a";
+        $team = Team::select('*')->get();
 
-        return view('product/product', ['product' => $product]);
+        return view('team/team', ['product' => $team]);
     }
 
-    public function addProdukPage()
+    public function addTeamPage()
     {
-        return view('product/add');
+        return view('team/add');
     }
 
-    public function addProduk(Request $request)
+    public function addTeam(Request $request)
     {
-        // dd($request);    
-
-        // return $request->file('image')->store('post-image');
 
         $request->validate(
             [
                 'nama' => ['required', 'min:1', Rule::unique('product')->ignore($request->id, 'id')],
-                'harga' => 'required|min:1',
                 'deskripsi' => 'required|min:1',
-                'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-                'link' => 'required|min:1'
-
+                'jabatan' => 'required|min:1',
+                'linkedin' => 'required|min:1',
+                'facebook' => 'required|min:1',
+                'instagram' => 'required|min:1',
             ]
         );
 
-        $imageName = $request->file('image')->store('folderImageProduct');
 
-        $produk = Product::create([
+        $team = Team::create([
+
             'nama' => $request->nama,
-            'harga' => $request->harga,
             'deskripsi' => $request->deskripsi,
-            'image' => $imageName,
-            'link' =>  $request->link,
+            'jabatan' => $request->jabatan,
+            'linkedin' => $request->linkedin,
+            'facebook' => $request->facebook,
+            'instagram' => $request->instagram,
             'status' => $request->status != "" ? "1" : "0"
-
 
         ]);
 
-        // return redirect()->route('viewuserdata')->with('message', 'Data update succeesfully');
 
-        if ($produk) {
-            return redirect()->route('produkPage')->with('berhasil', 'Data berhasil di tambahkan');
+        if ($team) {
+            return redirect()->route('teamPage')->with('berhasil', 'Data berhasil di tambahkan');
         } else {
-            return redirect()->route('produkPage')->with('gagal', 'Data gagal di tambahkan');
+            return redirect()->route('teamPage')->with('gagal', 'Data gagal di tambahkan');
         }
     }
 
-    public function updateProdukPage($id)
+    public function updateTeamPage($id)
     {
 
-        $dataUpdate = Product::select('*')->where('id', $id)->first();
+        $dataUpdate = Team::select('*')->where('id', $id)->first();
 
-        return view('product/update', ['data' => $dataUpdate]);
+        return view('team/update', ['data' => $dataUpdate]);
     }
 
-    public function updateProduk(Request $request)
+    public function updateTeam(Request $request)
     {
 
-        // dd($request);
-
-        // dd("*");
-
-        $product = Product::select('*')->where('id', $request->id)->first();
-
-        // $a = Storage::delete(public_path()$product['images']);
-        // dd($product);
-        // dd($product['image']);
-
-        // dd(public_path('storage/'.$product['image']));
-
-        // Storage::exists(public_path('storage/'.$product['image']))
-
-        if ($request->image != "") {
-            if (Storage::exists($product['image'])) {
-                // dd("path ditemukan");
-                Storage::delete($product['image']);
-            } else {
-                // dd("path tidak ditemukan");
-            }
-
-
-            $request->validate(
-                [
-                    'nama' => ['required', 'min:1', Rule::unique('product')->ignore($request->id, 'id')],
-                    'harga' => 'required|min:1',
-                    'deskripsi' => 'required|min:1',
-                    'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-                    'link' => 'required|min:1'
-
-                ]
-            );
-
-            $imageName = $request->file('image')->store('folderImageProduct');
-        } else {
-
-            $imageName = $request->imageLama;
-
-
-            $request->validate(
-                [
-                    'nama' => ['required', 'min:1', Rule::unique('product')->ignore($request->id, 'id')],
-                    'harga' => 'required|min:1',
-                    'deskripsi' => 'required|min:1',
-                    'link' => 'required|min:1'
-
-                ]
-            );
-        }
-
-        // dd($imageName);
-
-        // dd($product);
-
-        // dd($a);
-
-
-        // dd("*");
-
-        $produk = Product::where('id', $request->id)->update(
+        $team = Team::where('id', $request->id)->update(
             [
                 'nama' => $request->nama,
-                'harga' => $request->harga,
                 'deskripsi' => $request->deskripsi,
-                'image' => $imageName,
-                'link' => $request->link,
+                'jabatan' => $request->jabatan,
+                'linkedin' => $request->linkedin,
+                'facebook' => $request->facebook,
+                'instagram' => $request->instagram,
                 'status' => $request->status != "" ? "1" : "0"
             ]
         );
 
 
-        if ($produk) {
-            return redirect()->route('produkPage')->with('berhasil', 'Data berhasil di update');
+        if ($team) {
+            return redirect()->route('teamPage')->with('berhasil', 'Data berhasil di update');
         } else {
-            return redirect()->route('produkPage')->with('gagal', 'Data gagal di update');
+            return redirect()->route('teamPage')->with('gagal', 'Data gagal di update');
         }
+        
     }
 
-    public function deleteProduk($id)
+    public function deleteTeam($id)
     {
 
-
-        $product = Product::select('*')->where('id', $id)->first();
-
-        if (Storage::exists($product['image'])) {
-            // dd("path ditemukan");
-            Storage::delete($product['image']);
-        } else {
-            // dd("path tidak ditemukan");
-        }
-
-        $delete = Product::where('id', $id)
+        $delete = Team::where('id', $id)
             ->delete();
 
         if ($delete) {
-            return redirect()->route('produkPage')->with('berhasil', 'Data berhasil di hapus');
+            return redirect()->route('teamPage')->with('berhasil', 'Data berhasil di hapus');
         } else {
-            return redirect()->route('produkPage')->with('gagal', 'Data gagal di hapus');
+            return redirect()->route('teamPage')->with('gagal', 'Data gagal di hapus');
         }
+
     }
 }

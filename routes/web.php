@@ -4,8 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CatalogController;
-
-
+use App\Http\Controllers\TeamController;
 
 // User
 Route::get('/', function(){
@@ -40,12 +39,12 @@ Route::get('catalog/update/{id}', [CatalogController::class, 'updateCatalogPage'
 Route::post('catalog/update', [CatalogController::class, 'updateCatalog'])->name('updateCatalog')->middleware('auth');
 
 // Team
-Route::get('catalog/view', [CatalogController::class, 'catalogPage'])->name('catalogPage')->middleware('auth');
-Route::get('catalog/delete-catalog/{id}', [CatalogController::class, 'deleteCatalog'])->name('deleteCatalog')->middleware('auth');
-Route::get('catalog/add', [CatalogController::class, 'addCatalogPage'])->name('addCatalogPage')->middleware('auth');;
-Route::post('catalog/add', [CatalogController::class, 'addCatalog'])->name('addCatalog');
-Route::get('catalog/update/{id}', [CatalogController::class, 'updateCatalogPage'])->name('updateCatalogPage')->middleware('auth');
-Route::post('catalog/update', [CatalogController::class, 'updateCatalog'])->name('updateCatalog')->middleware('auth');
+Route::get('team/view', [TeamController::class, 'teamPage'])->name('teamPage')->middleware('auth');
+Route::get('team/delete-team/{id}', [TeamController::class, 'deleteteam'])->name('deleteteam')->middleware('auth');
+Route::get('team/add', [TeamController::class, 'addteamPage'])->name('addteamPage')->middleware('auth');;
+Route::post('team/add', [TeamController::class, 'addteam'])->name('addteam');
+Route::get('team/update/{id}', [TeamController::class, 'updateteamPage'])->name('updateteamPage')->middleware('auth');
+Route::post('team/update', [TeamController::class, 'updateteam'])->name('updateteam')->middleware('auth');
 
 
 
