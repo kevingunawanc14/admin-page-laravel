@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2023 at 08:19 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- Generation Time: Apr 07, 2023 at 02:03 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,6 +40,13 @@ CREATE TABLE `catalog` (
   `updated_by` int(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `catalog`
+--
+
+INSERT INTO `catalog` (`id`, `nama`, `judul`, `image`, `pdf`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(6, 'a', 'a', 'folderImageCatalog/2POx2Yn37P6IOXKhhhespSYd4IdohIU74dF2P7V9.jpg', 'folderPDFCatalog/fn2t5lxowZnsV1VpzoRu8zgngYbR582Uv99uQVLk.pdf', '1', '2023-04-01 02:57:01', 0, '2023-04-01 02:57:34', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -67,7 +74,33 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`id`, `nama`, `harga`, `deskripsi`, `image`, `link`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
 (20, 'a4', 1, 'a', 'images/QGcHLmrLvggdgMrNf94nxk5Nrsnete50GW7ZSHFn.jpg', 'a', '0', '2023-03-17 14:40:36', 0, '2023-03-18 02:57:41', 0),
 (21, 'a5', 1, '1', 'images/4XQY5IAWFZshArXXCRSHbg7Mn4nN8JZJMDA3gyLL.jpg', '1', '0', '2023-03-17 14:42:35', 0, '2023-03-17 14:42:35', 0),
-(22, 'aaa', 1, '1', 'images/57XfEPxuNSSEA7MSlvk6URiXusI20fS79GgcB8oP.jpg', '1', '1', '2023-03-18 02:53:47', 0, '2023-03-18 02:57:15', 0);
+(22, 'aaa', 1, '1', 'images/57XfEPxuNSSEA7MSlvk6URiXusI20fS79GgcB8oP.jpg', '1', '1', '2023-03-18 02:53:47', 0, '2023-03-18 02:57:15', 0),
+(23, '1', 1, '1', 'images/ofbusSuaxSGJTyjJMXBqoxp0rFvO2EN93F4fZR4b.png', '1', '0', '2023-03-28 01:09:01', 0, '2023-03-28 01:09:01', 0),
+(27, '12222', 1, '1', 'folderGambar/mxQUkdxwH9YQRHhW6k3U5nNZpL2miS684AyNPKXA.jpg', '1', '0', '2023-03-30 00:38:20', 0, '2023-03-30 00:43:02', 0),
+(28, 'abc1', 1, 'aa', 'folderGambar/gEgKyTdd2yYKZVZaxmvul8HRBg3StZNYpoNEgiPL.jpg', '1', '0', '2023-03-31 15:35:59', 0, '2023-04-01 02:15:04', 0),
+(29, 'a1', 1, '1', 'folderGambar/nchrc3RZtSCZkx76CgU5YoYoe7q466xQjeJJNx5L.jpg', '1', '0', '2023-04-01 02:19:22', 0, '2023-04-01 02:19:27', 0),
+(30, 'a2', 1, '1', 'folderImageProduct/ue1xCipV8XuBa4UlrcMGG29QETpQIcV1h1ITcisz.jpg', '1', '0', '2023-04-01 02:20:35', 0, '2023-04-01 02:49:48', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `team`
+--
+
+CREATE TABLE `team` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(200) NOT NULL,
+  `jabatan` varchar(200) NOT NULL,
+  `deskripsi` varchar(200) NOT NULL,
+  `linkedin` varchar(200) NOT NULL,
+  `facebook` varchar(200) NOT NULL,
+  `instagram` varchar(200) NOT NULL,
+  `status` char(1) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` int(200) NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `updated_by` int(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -117,6 +150,12 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `team`
+--
+ALTER TABLE `team`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -130,13 +169,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `catalog`
 --
 ALTER TABLE `catalog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `team`
+--
+ALTER TABLE `team`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
