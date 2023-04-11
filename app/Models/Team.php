@@ -11,7 +11,7 @@ class Team extends Model
 
     protected $table = 'team';
     protected $primarykey = 'id';
-    protected $fillable = ['nama','jabatan','deskripsi','linkedin','facebook','instagram','status'];
+    protected $fillable = ['nama','jabatan','deskripsi','linkedin','facebook','instagram','image','status'];
 
 
 }

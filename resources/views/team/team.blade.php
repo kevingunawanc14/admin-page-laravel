@@ -23,6 +23,7 @@
                         <th scope="col">Linkedin</th>
                         <th scope="col">Facebook</th>
                         <th scope="col">Instagram</th>
+                        <th scope="col">Image</th>
                         <th scope="col">Status</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -38,6 +39,7 @@
                         <td>{{ $data->linkedin }}</td>
                         <td>{{ $data->facebook }}</td>
                         <td>{{ $data->instagram }}</td>
+                        <td><img src="{{ asset('storage/' .$data->image ) }}" alt="" width="100px" ></td>
                         <td>{{ $data->status == '1' ? 'Aktif' : 'Non-aktif' }}</td>
                         <td>
                             <a data-bs-toggle="tooltip" data-bs-placement="top" title="Update" href="{{ route('updateTeamPage', $data->id) }}" type="button" class="btn btn-secondary"><i class="ri-settings-5-line"></i></a>

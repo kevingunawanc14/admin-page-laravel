@@ -25,6 +25,9 @@ class TeamController extends Controller
     public function addTeam(Request $request)
     {
 
+        // dd($request);    
+
+
         $request->validate(
             [
                 'nama' => ['required', 'min:1', Rule::unique('team')->ignore($request->id, 'id')],
@@ -39,6 +42,7 @@ class TeamController extends Controller
 
         $imageName = $request->file('image')->store('folderImageTeam');
 
+        // dd($imageName);
 
         $team = Team::create([
 
@@ -74,11 +78,16 @@ class TeamController extends Controller
 
         $team = Team::select('*')->where('id', $request->id)->first();
 
+        // dd($request);
+
         if ($request->image != "") {
+
             if (Storage::exists($team['image'])) {
                 Storage::delete($team['image']);
             } else {
+
             }
+
 
             $request->validate(
                 [
@@ -88,7 +97,7 @@ class TeamController extends Controller
                     'linkedin' => 'required|min:1',
                     'facebook' => 'required|min:1',
                     'instagram' => 'required|min:1',
-                    'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+                    'image' => 'required|image|mimes:jpeg,png,jpg|max:2048'
 
                 ]
             );
@@ -97,6 +106,7 @@ class TeamController extends Controller
 
         } else {
 
+            
             $imageName = $request->imageLama;
 
 
@@ -107,14 +117,17 @@ class TeamController extends Controller
                     'jabatan' => 'required|min:1',
                     'linkedin' => 'required|min:1',
                     'facebook' => 'required|min:1',
-                    'instagram' => 'required|min:1',
-                    'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-
+                    'instagram' => 'required|min:1'
                 ]
             );
+
+            // dd("*");
+
+        // dd($imageName);
+
         }
 
-
+        
         $team = Team::where('id', $request->id)->update(
             [
                 'nama' => $request->nama,
@@ -134,7 +147,6 @@ class TeamController extends Controller
         } else {
             return redirect()->route('teamPage')->with('gagal', 'Data gagal di update');
         }
-
     }
 
     public function deleteTeam($id)
@@ -154,6 +166,5 @@ class TeamController extends Controller
         } else {
             return redirect()->route('teamPage')->with('gagal', 'Data gagal di hapus');
         }
-
     }
 }
