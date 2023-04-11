@@ -39,10 +39,10 @@
                                 <div class="row mb-3">
                                     <label for="" class="col-sm-2 col-form-label">Deskripsi</label>
                                     <div class="col-sm-10">
-                                        <input name="deksirpsi" value="{{ $data->deksirpsi }}" type="text"
-                                            class="form-control @error('deksirpsi')is-invalid @enderror" id="inputEmail">
+                                        <input name="deskirpsi" value="{{ $data->deksirpsi }}" type="text"
+                                            class="form-control @error('deskirpsi')is-invalid @enderror" id="inputEmail">
 
-                                        @error('deksirpsi')
+                                        @error('deskirpsi')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -80,7 +80,24 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="row mb-3">
+                                    <label for="" class="col-sm-2 col-form-label">Image</label>
+                                    <div class="col-sm-10">
 
+                                        <img class="" src="{{ asset('storage/' . $data->image) }}" alt=""
+                                            width="100px">
+
+                                        <input name="image" value="" type="file"
+                                            class="form-control @error('image')is-invalid @enderror mt-3" id="inputText">
+
+                                        <input name="imageLama" value="{{ $data->image }}" type="hidden"
+                                            class="form-control" id="inputText">
+
+                                        @error('image')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Status</label>
                                     <div class="col-sm-10">

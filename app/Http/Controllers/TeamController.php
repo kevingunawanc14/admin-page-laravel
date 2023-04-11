@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
+
 
 class TeamController extends Controller
 {
@@ -31,8 +33,11 @@ class TeamController extends Controller
                 'linkedin' => 'required|min:1',
                 'facebook' => 'required|min:1',
                 'instagram' => 'required|min:1',
+                'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             ]
         );
+
+        $imageName = $request->file('image')->store('folderImageTeam');
 
 
         $team = Team::create([
@@ -43,6 +48,7 @@ class TeamController extends Controller
             'linkedin' => $request->linkedin,
             'facebook' => $request->facebook,
             'instagram' => $request->instagram,
+            'image' => $imageName,
             'status' => $request->status != "" ? "1" : "0"
 
         ]);
@@ -66,6 +72,49 @@ class TeamController extends Controller
     public function updateTeam(Request $request)
     {
 
+        $team = Team::select('*')->where('id', $request->id)->first();
+
+        if ($request->image != "") {
+            if (Storage::exists($team['image'])) {
+                Storage::delete($team['image']);
+            } else {
+            }
+
+            $request->validate(
+                [
+                    'nama' => ['required', 'min:1', Rule::unique('team')->ignore($request->id, 'id')],
+                    'deskripsi' => 'required|min:1',
+                    'jabatan' => 'required|min:1',
+                    'linkedin' => 'required|min:1',
+                    'facebook' => 'required|min:1',
+                    'instagram' => 'required|min:1',
+                    'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+
+                ]
+            );
+
+            $imageName = $request->file('image')->store('folderImageTeam');
+
+        } else {
+
+            $imageName = $request->imageLama;
+
+
+            $request->validate(
+                [
+                    'nama' => ['required', 'min:1', Rule::unique('team')->ignore($request->id, 'id')],
+                    'deskripsi' => 'required|min:1',
+                    'jabatan' => 'required|min:1',
+                    'linkedin' => 'required|min:1',
+                    'facebook' => 'required|min:1',
+                    'instagram' => 'required|min:1',
+                    'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+
+                ]
+            );
+        }
+
+
         $team = Team::where('id', $request->id)->update(
             [
                 'nama' => $request->nama,
@@ -74,6 +123,7 @@ class TeamController extends Controller
                 'linkedin' => $request->linkedin,
                 'facebook' => $request->facebook,
                 'instagram' => $request->instagram,
+                'image' => $imageName,
                 'status' => $request->status != "" ? "1" : "0"
             ]
         );
@@ -89,6 +139,12 @@ class TeamController extends Controller
 
     public function deleteTeam($id)
     {
+        $team = Team::select('*')->where('id', $id)->first();
+
+        if (Storage::exists($team['image'])) {
+            Storage::delete($team['image']);
+        } else {
+        }
 
         $delete = Team::where('id', $id)
             ->delete();
