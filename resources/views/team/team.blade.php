@@ -19,9 +19,9 @@
                         <th scope="col">#</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Jabatan</th>
-                        <th scope="col">Deskripsi</th>
+                        {{-- <th scope="col">Deskripsi</th>
                         <th scope="col">Linkedin</th>
-                        <th scope="col">Facebook</th>
+                        <th scope="col">Facebook</th> --}}
                         <th scope="col">Instagram</th>
                         <th scope="col">Image</th>
                         <th scope="col">Status</th>
@@ -35,9 +35,9 @@
                         <th scope="row">{{ $no++ }}</th>
                         <td>{{ $data->nama }}</td>
                         <td>{{ $data->jabatan }}</td>
-                        <td>{{ $data->deskripsi }}</td>
+                        {{-- <td>{{ $data->deskripsi }}</td>
                         <td>{{ $data->linkedin }}</td>
-                        <td>{{ $data->facebook }}</td>
+                        <td>{{ $data->facebook }}</td> --}}
                         <td>{{ $data->instagram }}</td>
                         <td><img src="{{ asset('storage/' .$data->image ) }}" alt="" width="100px" ></td>
                         <td>{{ $data->status == '1' ? 'Aktif' : 'Non-aktif' }}</td>
