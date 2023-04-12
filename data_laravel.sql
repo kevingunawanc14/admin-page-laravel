@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2023 at 02:03 PM
+-- Generation Time: Apr 12, 2023 at 09:33 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -95,12 +95,20 @@ CREATE TABLE `team` (
   `linkedin` varchar(200) NOT NULL,
   `facebook` varchar(200) NOT NULL,
   `instagram` varchar(200) NOT NULL,
+  `image` varchar(200) NOT NULL,
   `status` char(1) NOT NULL,
   `created_at` datetime NOT NULL,
   `created_by` int(200) NOT NULL,
   `updated_at` datetime NOT NULL,
   `updated_by` int(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `team`
+--
+
+INSERT INTO `team` (`id`, `nama`, `jabatan`, `deskripsi`, `linkedin`, `facebook`, `instagram`, `image`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(12, '1', '1', '1', '1', '1', '1', 'folderImageTeam/Ju1uU58f8bS8fx0OLI3w2rSSaKfpzRQgrGLIcsNq.png', '1', '2023-04-11 10:35:18', 0, '2023-04-11 10:45:28', 0);
 
 -- --------------------------------------------------------
 
@@ -181,7 +189,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user`
