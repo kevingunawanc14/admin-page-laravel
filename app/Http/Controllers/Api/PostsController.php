@@ -6,6 +6,7 @@ use App\Models\Catalog;
 use App\Models\Product;
 use App\Models\Team;
 use Illuminate\Http\Request;
+use App\Http\Resources\PostResource;
 
 class PostsController extends Controller
 {
