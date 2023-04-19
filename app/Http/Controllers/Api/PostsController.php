@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Catalog;
 use App\Models\Product;
 use App\Models\Team;
 use Illuminate\Http\Request;
@@ -17,6 +18,11 @@ class PostsController extends Controller
     public function getTeam(){
         $posts = Team::select('*')->get();
         return new PostResource(true,'List Data Team',$posts);
+    }
+
+    public function getCatalog(){
+        $posts = Catalog::select('*')->get();
+        return new PostResource(true,'List Data Catalog',$posts);
     }
     /**
      * Display a listing of the resource.
