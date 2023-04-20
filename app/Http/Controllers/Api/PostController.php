@@ -8,11 +8,14 @@ use App\Models\Team;
 use Illuminate\Http\Request;
 use App\Http\Resources\PostResource;
 
-class PostsController extends Controller
+class PostController extends Controller
 {
-
+    public function test(){
+        dd("**");
+    }
     public function getProduct(){
         $posts = Product::select('*')->get();
+        dd("xx");
         return new PostResource(true,'List Data Product',$posts);
     }
 
@@ -25,6 +28,8 @@ class PostsController extends Controller
         $posts = Catalog::select('*')->get();
         return new PostResource(true,'List Data Catalog',$posts);
     }
+
+
     /**
      * Display a listing of the resource.
      *

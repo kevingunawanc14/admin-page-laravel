@@ -19,5 +19,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/product',[PostController::class,'getProduct']);
-Route::get('/team',[PostController::class,'getTeam']);
+// Route::get('test',[PostController::class,'test']);
+
+Route::get('test1', function () {
+    dd("*x");
+});
+
+Route::get('/tesla', function () {
+    dd("*xxx");
+});
+
+Route::get('team',[PostController::class,'getTeam']);
