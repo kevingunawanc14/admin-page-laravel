@@ -11,12 +11,9 @@ use App\Http\Resources\PostResource;
 
 class PostController extends Controller
 {
-    public function test(){
-        dd("**");
-    }
+
     public function getProduct(){
         $posts = Product::select('*')->get();
-        dd("xx");
         return new PostResource(true,'List Data Product',$posts);
     }
 
