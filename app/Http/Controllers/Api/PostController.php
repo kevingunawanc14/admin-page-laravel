@@ -14,16 +14,25 @@ class PostController extends Controller
 
     public function getProduct(){
         $posts = Product::select('*')->get();
+        foreach ($posts as $posts){
+            $posts['image'] = asset('storage/' . $posts->image);
+        }
         return new PostResource(true,'List Data Product',$posts);
     }
 
     public function getTeam(){
         $posts = Team::select('*')->get();
+        foreach ($posts as $posts){
+            $posts['image'] = asset('storage/' . $posts->image);
+        }
         return new PostResource(true,'List Data Team',$posts);
     }
 
     public function getCatalog(){
         $posts = Catalog::select('*')->get();
+        foreach ($posts as $posts){
+            $posts['image'] = asset('storage/' . $posts->image);
+        }
         return new PostResource(true,'List Data Catalog',$posts);
     }
 
