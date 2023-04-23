@@ -33,6 +33,9 @@ class PostController extends Controller
         foreach ($posts as $posts){
             $posts['image'] = asset('storage/' . $posts->image);
         }
+        foreach ($posts as $posts){
+            $posts['catalog'] = asset('storage/' . $posts->catalog);
+        }
         return new PostResource(true,'List Data Catalog',$posts);
     }
 
