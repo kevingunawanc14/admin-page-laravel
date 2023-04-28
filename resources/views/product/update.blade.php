@@ -28,7 +28,7 @@
                                 <div class="row mb-3">
                                     <label for="" class="col-sm-2 col-form-label">Harga</label>
                                     <div class="col-sm-10">
-                                        <input name="harga" value="{{ $data->harga }}" type="text"
+                                        <input name="harga" value="{{ $data->harga }}" type="number"
                                             class="form-control @error('harga')is-invalid @enderror" id="inputEmail">
 
                                         @error('harga')

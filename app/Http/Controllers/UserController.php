@@ -57,7 +57,7 @@ class UserController extends Controller
 
     public function usersPage()
     {
-        $user = User::select('*')->get();
+        $user = User::orderBy('id', 'desc')->get();
 
         // dd(session()->all());
 

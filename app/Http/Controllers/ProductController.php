@@ -11,7 +11,7 @@ class ProductController extends Controller
 {
     public function produkPage()
     {
-        $product = Product::select('*')->get();
+        $product = Product::orderBy('id', 'desc')->get();
         // $product = "a";
 
         return view('product/product', ['product' => $product]);

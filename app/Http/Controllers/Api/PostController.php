@@ -13,7 +13,7 @@ class PostController extends Controller
 {
 
     public function getProduct(){
-        $posts = Product::select('*')->get();
+        $posts = Product::orderBy('id', 'desc')->get();
         foreach ($posts as $post){
             $post['image'] = asset('storage/' . $post->image);
         }
@@ -30,7 +30,7 @@ class PostController extends Controller
     }
 
     public function getTeam(){
-        $posts = Team::select('*')->get();
+        $posts = Team::orderBy('id', 'desc')->get();
         // dd($posts);
 
         foreach ($posts as $post){
@@ -50,7 +50,7 @@ class PostController extends Controller
     }
 
     public function getCatalog(){
-        $posts = Catalog::select('*')->get();
+        $posts = Catalog::orderBy('id', 'desc')->get();
         foreach ($posts as $post){
             $post['image'] = asset('storage/' . $post->image);
             $post['pdf'] = asset('storage/' . $post->pdf);

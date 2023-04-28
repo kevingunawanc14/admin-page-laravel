@@ -11,7 +11,7 @@ class CatalogController extends Controller
 {
     public function catalogPage()
     {
-        $catalog = Catalog::select('*')->get();
+        $catalog = Catalog::orderBy('id', 'desc')->get();
 
         return view('catalog/catalog', ['catalog' => $catalog]);
     }
