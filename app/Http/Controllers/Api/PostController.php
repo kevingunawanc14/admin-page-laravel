@@ -14,28 +14,51 @@ class PostController extends Controller
 
     public function getProduct(){
         $posts = Product::select('*')->get();
-        foreach ($posts as $posts){
-            $posts['image'] = asset('storage/' . $posts->image);
+        foreach ($posts as $post){
+            $post['image'] = asset('storage/' . $post->image);
         }
         return new PostResource(true,'List Data Product',$posts);
+
+        // $data = [];
+        // foreach ($posts as $post) {
+        //     $post['image'] = asset('storage/' . $post->image);
+        //     $data[] = new PostResource(true, 'Data Product', $post);
+        // }
+    
+        // return $data;
+
     }
 
     public function getTeam(){
         $posts = Team::select('*')->get();
-        foreach ($posts as $posts){
-            $posts['image'] = asset('storage/' . $posts->image);
+        // dd($posts);
+
+        foreach ($posts as $post){
+            $post['image'] = asset('storage/' . $post->image);
         }
+
+        // $data = [];
+        // foreach ($posts as $post) {
+        //     $post['image'] = asset('storage/' . $post->image);
+        //     $data[] = new PostResource(true, 'Data Team', $post);
+        // }
+    
+        // return $data;
+
+     
         return new PostResource(true,'List Data Team',$posts);
     }
 
     public function getCatalog(){
         $posts = Catalog::select('*')->get();
-        foreach ($posts as $posts){
-            $posts['image'] = asset('storage/' . $posts->image);
+        foreach ($posts as $post){
+            $post['image'] = asset('storage/' . $post->image);
+            $post['pdf'] = asset('storage/' . $post->pdf);
+
         }
-        foreach ($posts as $posts){
-            $posts['pdf'] = asset('storage/' . $posts->pdf);
-        }
+        // foreach ($posts as $posts){
+        //     $posts['pdf'] = asset('storage/' . $posts->pdf);
+        // }
         return new PostResource(true,'List Data Catalog',$posts);
     }
 
