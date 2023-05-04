@@ -60,6 +60,7 @@ class UserController extends Controller
         $user = User::orderBy('id_user', 'desc')->get();
 
         // dd(session()->all());
+        // 
 
         return view('user/user', ['user' => $user]);
     }

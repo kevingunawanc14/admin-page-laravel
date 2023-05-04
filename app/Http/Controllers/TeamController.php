@@ -94,9 +94,9 @@ class TeamController extends Controller
                     'nama' => ['required', 'min:1', Rule::unique('team')->ignore($request->id, 'id')],
                     'deskripsi' => 'required|min:1',
                     'jabatan' => 'required|min:1',
-                    'linkedin' => 'nullable|min:2',
-                    'facebook' => 'nullable|min:2',
-                    'instagram' => 'nullable|min:2',
+                    'linkedin' => 'nullable|min:1',
+                    'facebook' => 'nullable|min:1',
+                    'instagram' => 'nullable|min:1',
                     'image' => 'required|image|mimes:jpeg,png,jpg|max:2048'
 
                 ]
@@ -115,9 +115,9 @@ class TeamController extends Controller
                     'nama' => ['required', 'min:1', Rule::unique('team')->ignore($request->id, 'id')],
                     'deskripsi' => 'required|min:1',
                     'jabatan' => 'required|min:1',
-                    'linkedin' => 'nullable|min:2',
-                    'facebook' => 'nullable|min:2',
-                    'instagram' => 'nullable|min:2'
+                    'linkedin' => 'nullable|min:1',
+                    'facebook' => 'nullable|min:1',
+                    'instagram' => 'nullable|min:1'
                 ]
             );
 

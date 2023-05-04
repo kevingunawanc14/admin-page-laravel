@@ -39,8 +39,9 @@
                                 <div class="row mb-3">
                                     <label for="" class="col-sm-2 col-form-label">Deskripsi</label>
                                     <div class="col-sm-10">
-                                        <input name="deskripsi" value="{{ $data->deskripsi }}" type="text"
-                                            class="form-control @error('deskripsi')is-invalid @enderror" id="inputEmail">
+                                        {{-- <input name="deskripsi" value="{{ $data->deskripsi }}" type="text"
+                                            class="form-control @error('deskripsi')is-invalid @enderror" id="inputEmail"> --}}
+                                        <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="inputEmail" rows="4">{{ $data->deskripsi }}</textarea>
 
                                         @error('deskripsi')
                                             <div class="invalid-feedback">{{ $message }}</div>
