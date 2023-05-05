@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\InboxController;
 use App\Http\Controllers\TeamController;
 
 // User
@@ -45,6 +46,9 @@ Route::get('team/add', [TeamController::class, 'addTeamPage'])->name('addTeamPag
 Route::post('team/add', [TeamController::class, 'addTeam'])->name('addTeam');
 Route::get('team/update/{id}', [TeamController::class, 'updateTeamPage'])->name('updateTeamPage')->middleware('auth');
 Route::post('team/update', [TeamController::class, 'updateTeam'])->name('updateTeam')->middleware('auth');
+
+// Inbox
+Route::get('inbox/view', [InboxController::class, 'inboxPage'])->name('inboxPage')->middleware('auth');
 
 
 

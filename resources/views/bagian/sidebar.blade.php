@@ -50,6 +50,13 @@
         </a>
       </li> 
 
+       <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('inboxPage') }}">
+          <i class="ri-inbox-archive-line"></i>
+          <span>Inbox</span>
+        </a>
+      </li> 
+
       {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="pages-blank.html">
           <i class="bi bi-file-earmark"></i>
