@@ -23,8 +23,23 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('team',[PostController::class,'getTeam']);
 Route::get('product',[PostController::class,'getProduct']);
 Route::get('catalog',[PostController::class,'getCatalog']);
+Route::post('test1', [PostController::class, 'submitContact']);
 
 Route::get('test', function () {
     dd("*77*");
     return 'This is a test';
 })->name('test');
+
+Route::post('api/test2', function (Request $request) {
+    // Retrieve the form data from the POST request
+    dd("****");
+
+    $nama = $request->input('nama');
+    $email = $request->input('email');
+    $message = $request->input('message');
+    // Do something with the form data (e.g. send an email)
+    
+    // Return a response to the client
+    return response()->json(['success' => true]);
+  });
+

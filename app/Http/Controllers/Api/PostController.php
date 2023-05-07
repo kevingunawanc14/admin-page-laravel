@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Models\Catalog;
 use App\Models\Product;
 use App\Models\Team;
+use App\Models\Inbox;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -60,6 +62,42 @@ class PostController extends Controller
         //     $posts['pdf'] = asset('storage/' . $posts->pdf);
         // }
         return new PostResource(true,'List Data Catalog',$posts);
+    }   
+
+    public function submitContact(Request $request)
+    {
+        // dd($request);
+
+        $validator = Validator::make($request->all(), [
+            'nama' => 'required|min:2',
+            'email' => 'required|email',
+            'pesan' => 'required|min:5',
+        ]);
+    
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+    
+        Inbox::create([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'pesan' => $request->pesan,
+        ]);
+    
+        return response()->json(['success' => true]);
+
+        // if($Inbox){
+        //     return $Inbox;
+        // }else{
+        //     return $Inbox;
+        // }
+
+        // if ($Inbox) {
+        //     return redirect()->route('inboxPage')->with('berhasil', 'Data berhasil di tambahkan');
+        // } else {
+        //     return redirect()->route('inboxPage')->with('gagal', 'Data gagal di tambahkan');
+        // }
+
     }
 
 

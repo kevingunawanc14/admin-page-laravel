@@ -49,6 +49,14 @@ Route::post('team/update', [TeamController::class, 'updateTeam'])->name('updateT
 
 // Inbox
 Route::get('inbox/view', [InboxController::class, 'inboxPage'])->name('inboxPage')->middleware('auth');
+Route::get('inbox/change-status-email/{id}', [InboxController::class, 'changeStatusEmail'])->name('changeStatusEmail')->middleware('auth');
+Route::get('inbox/delete-Inbox/{id}', [InboxController::class, 'deleteInbox'])->name('deleteInbox')->middleware('auth');
+Route::get('inbox/add', [InboxController::class, 'addInboxPage'])->name('addInboxPage')->middleware('auth');
+Route::post('inbox/add', [InboxController::class, 'addInbox'])->name('addInbox')->middleware('auth');
+Route::get('inbox/update/{id}', [InboxController::class, 'updateInboxPage'])->name('updateInboxPage')->middleware('auth');
+Route::post('inbox/update', [InboxController::class, 'updateInbox'])->name('updateInbox')->middleware('auth');
+
+
 
 
 

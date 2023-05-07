@@ -3,13 +3,18 @@
 @extends('template.template')
 
 @section('content')
+<style>
+    .backgroundBaris{
+        background-color:#F2F6FC !important;
+    }
+</style>
 <main id="main" class="main">
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Data Inbox</h5>
 
             <div class="mb-2">
-                <a data-bs-toggle="tooltip" data-bs-placement="top" title="Add" href="{{ route('addProdukPage') }}" type="button" class="btn btn-success"><i class="ri-add-circle-line"></i></a>
+                <a data-bs-toggle="tooltip" data-bs-placement="top" title="Add" href="{{ route('addInboxPage') }}" type="button" class="btn btn-success"><i class="ri-add-circle-line"></i></a>
             </div>
 
             <!-- Default Table -->
@@ -27,15 +32,16 @@
                 <tbody>
                     @php $no = 1 @endphp
                     @foreach ($inbox as $data)
-                    <tr>
+
+                    <tr class="{{ $data->status == '1' ? 'backgroundBaris' : '' }}">
                         <th scope="row">{{ $no++ }}</th>
                         <td>{{ $data->nama }}</td>
                         <td>{{ $data->email }}</td>
                         <td>{{ $data->pesan }}</td>
                         <td>{{ $data->status == '1' ? 'Aktif' : 'Non-aktif' }}</td>
                         <td>
-                            <a data-bs-toggle="tooltip" data-bs-placement="top" title="Update" href="{{ route('updateProdukPage', $data->id) }}" type="button" class="btn btn-secondary"><i class="ri-settings-5-line"></i></a>
-                            <a data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" href="{{ route('deleteProduk', $data->id) }}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" type="button" class="btn btn-danger"><i class="ri-delete-bin-5-line"></i></a>
+                            <a data-bs-toggle="tooltip" data-bs-placement="top" title="Update" href="{{ route('updateInboxPage', $data->id) }}" type="button" class="btn btn-secondary"><i class="ri-settings-5-line"></i></a>
+                            <a data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" href="{{ route('deleteInbox', $data->id) }}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" type="button" class="btn btn-danger"><i class="ri-delete-bin-5-line"></i></a>
                         </td>
                     </tr>
                     @endforeach
