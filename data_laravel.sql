@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2023 at 09:33 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.0
+-- Waktu pembuatan: 08 Bulan Mei 2023 pada 13.15
+-- Versi server: 10.4.25-MariaDB
+-- Versi PHP: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `catalog`
+-- Struktur dari tabel `catalog`
 --
 
 CREATE TABLE `catalog` (
@@ -41,16 +41,79 @@ CREATE TABLE `catalog` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `catalog`
+-- Dumping data untuk tabel `catalog`
 --
 
 INSERT INTO `catalog` (`id`, `nama`, `judul`, `image`, `pdf`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(6, 'a', 'a', 'folderImageCatalog/2POx2Yn37P6IOXKhhhespSYd4IdohIU74dF2P7V9.jpg', 'folderPDFCatalog/fn2t5lxowZnsV1VpzoRu8zgngYbR582Uv99uQVLk.pdf', '1', '2023-04-01 02:57:01', 0, '2023-04-01 02:57:34', 0);
+(7, 'c1', 'c1', 'folderImageCatalog/btj9N12vrL1ftRnZMH3aUdbzK8tiOY1e2JH67uPA.jpg', 'folderPDFCatalog/UCV55ccsOdQ0lwY4qpKV8XDOKbLRcszNINqhbtvw.pdf', '1', '2023-04-28 15:04:48', 0, '2023-04-28 15:04:48', 0),
+(8, 'c2', 'c2', 'folderImageCatalog/DQWtDByjJhasFD7ykXMlxNNut9SvBDPzrUHTr6Db.jpg', 'folderPDFCatalog/faQo8fxSZPmvyQGz72NXWBeauuOCvnBx5JcofmxU.pdf', '1', '2023-04-28 15:07:16', 0, '2023-04-28 15:07:16', 0),
+(9, 'c3', 'c3', 'folderImageCatalog/WHUyZ28zDmkjqlkJVmXGIqgFL1i64XsYcujqgfVA.jpg', 'folderPDFCatalog/iZhFTmISXLaN2CW2Vz6d9ARZ0S6SWR8vofCgYYp9.pdf', '1', '2023-04-28 15:07:37', 0, '2023-04-28 15:07:37', 0),
+(10, 'c4', 'c4', 'folderImageCatalog/GgnUW0ZKbh2UDraBFjEkQnty96hHma92NV3LR2Pq.jpg', 'folderPDFCatalog/53ZefESSc7ebIA3US4WBvI9IThmPmpMmHjNq30L0.pdf', '1', '2023-04-28 15:07:58', 0, '2023-04-28 15:07:58', 0),
+(11, 'c5', 'c5', 'folderImageCatalog/qltMaxWaVxtHxfm76sZtOEB2vHiUVMTIvwXfu3zq.jpg', 'folderPDFCatalog/TW30EQtE1yuFxeEAqTgUmsLnVqgzXCNbMdecvPwL.pdf', '1', '2023-04-28 15:08:12', 0, '2023-04-28 15:08:12', 0),
+(12, 'c6', 'c6', 'folderImageCatalog/YddmEewLyYvO5B73eszQFNOoDib7QXf8SRYAspKP.jpg', 'folderPDFCatalog/gzcPgoCm5Us416uxr5LDsyLXF5Qxr0CojeE8dOf1.pdf', '1', '2023-04-28 15:08:27', 0, '2023-04-28 15:08:27', 0),
+(13, 'c7', 'c7', 'folderImageCatalog/5oKbJMvbRpIk6vhL7rX0mkPAr3J57tGFLbY7P2fc.jpg', 'folderPDFCatalog/riagDnBd5Bf72zDSadm27Rmuj3BkuXyYgvva1AYr.pdf', '1', '2023-04-28 15:08:41', 0, '2023-04-28 15:08:41', 0),
+(14, 'c8', 'c8', 'folderImageCatalog/ZkdL8LqBbzjQ57ycxBc98S8HSZgF6qmoridaT3VK.jpg', 'folderPDFCatalog/eY9eXqBSrY6C0mXCmNRe9w0gT6FPbrKTM0wKNdjL.pdf', '1', '2023-04-28 15:08:55', 0, '2023-04-28 15:08:55', 0),
+(15, 'c9', 'c9', 'folderImageCatalog/B63OyiQFb4Nzi1bb4EDD2GEPKgBF2JpEaezYK9Yf.jpg', 'folderPDFCatalog/7mw7jBn9IT9A3UX37I63q5pSFUtCB6ddn5jOM0js.pdf', '1', '2023-04-28 15:09:09', 0, '2023-04-28 15:09:09', 0),
+(16, 'c10', 'c10', 'folderImageCatalog/yTKDhrtrUO4qFYcT70K41AVAPrkfgqfFkzaHO9mw.jpg', 'folderPDFCatalog/5VCGpCVng6ZdKWQnNHWGsL1OiFLsuwzBcXbutxPA.pdf', '1', '2023-04-28 15:09:29', 0, '2023-04-28 15:09:29', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Struktur dari tabel `inbox`
+--
+
+CREATE TABLE `inbox` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `pesan` varchar(200) NOT NULL,
+  `status` char(1) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` int(200) NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `updated_by` int(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `inbox`
+--
+
+INSERT INTO `inbox` (`id`, `nama`, `email`, `pesan`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(2, 'a', 'b', 'c', '1', '2023-05-06 17:52:04', 0, '2023-05-06 17:52:04', 0),
+(3, 'a', 'a', 'a', '0', '2023-05-07 01:43:51', 0, '2023-05-07 01:43:51', 0),
+(4, 'a', 'ax', 'aa', '1', '2023-05-07 01:44:17', 0, '2023-05-07 01:50:33', 0),
+(5, 'q', '', '', '', '2023-05-07 02:48:17', 0, '2023-05-07 02:48:17', 0),
+(6, 'q', '', '', '', '2023-05-07 02:48:32', 0, '2023-05-07 02:48:32', 0),
+(7, 'q', '', '', '', '2023-05-07 03:35:39', 0, '2023-05-07 03:35:39', 0),
+(8, 'aa', '', '', '', '2023-05-07 03:36:17', 0, '2023-05-07 03:36:17', 0),
+(9, 'q', '', '', '', '2023-05-07 03:36:35', 0, '2023-05-07 03:36:35', 0),
+(10, 'q*', '', '', '', '2023-05-07 03:38:30', 0, '2023-05-07 03:38:30', 0),
+(11, 'q', '', '', '', '2023-05-07 03:38:54', 0, '2023-05-07 03:38:54', 0),
+(12, 'q', '', '', '', '2023-05-07 03:39:34', 0, '2023-05-07 03:39:34', 0),
+(13, 'q', '', '', '', '2023-05-07 03:40:26', 0, '2023-05-07 03:40:26', 0),
+(14, 'q', '', '', '', '2023-05-07 03:40:48', 0, '2023-05-07 03:40:48', 0),
+(15, 'q', '', '', '', '2023-05-07 03:42:39', 0, '2023-05-07 03:42:39', 0),
+(16, 'q', '', '', '', '2023-05-07 03:43:18', 0, '2023-05-07 03:43:18', 0),
+(17, 'x', '', '', '', '2023-05-07 03:43:38', 0, '2023-05-07 03:43:38', 0),
+(18, 'v', '', '', '', '2023-05-07 03:44:47', 0, '2023-05-07 03:44:47', 0),
+(19, 'F', '', '', '', '2023-05-07 03:45:49', 0, '2023-05-07 03:45:49', 0),
+(20, 'X', 'Q@GMAIL.COM', 'Q', '', '2023-05-07 03:53:39', 0, '2023-05-07 03:53:39', 0),
+(21, 'xx', 'xx@gmail.com', 'x', '1', '2023-05-07 03:54:41', 0, '2023-05-07 03:55:17', 0),
+(22, 't', 't@gmail.com', 't', '', '2023-05-07 03:57:05', 0, '2023-05-07 03:57:05', 0),
+(23, 'x', 'x@gmail.com', 'x', '', '2023-05-07 03:58:22', 0, '2023-05-07 03:58:22', 0),
+(24, 'xx', 'x@gmail.com', 'x', '', '2023-05-07 03:59:18', 0, '2023-05-07 03:59:18', 0),
+(25, 'x', 'x@gmail.com', 'x', '', '2023-05-07 04:10:11', 0, '2023-05-07 04:10:11', 0),
+(26, 'xx', 'x@gmail.com', 'x', '1', '2023-05-07 04:10:24', 0, '2023-05-07 04:13:05', 0),
+(27, 'q', 'q@gmail.com', 'q', '', '2023-05-07 04:36:59', 0, '2023-05-07 04:36:59', 0),
+(28, 'ab', 'a@gmail.com', 'abcde', '', '2023-05-07 05:01:29', 0, '2023-05-07 05:01:29', 0),
+(29, 'ab', 'ab@gmail.com', 'abcde', '1', '2023-05-07 05:02:23', 0, '2023-05-07 05:02:35', 0),
+(30, 'ab', 'ab@gmail.com', 'abcdeee', '', '2023-05-07 05:04:21', 0, '2023-05-07 05:04:21', 0),
+(31, 'ab', 'ab@gmail.com', 'abcdeee', '', '2023-05-07 05:04:24', 0, '2023-05-07 05:04:24', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `product`
 --
 
 CREATE TABLE `product` (
@@ -68,23 +131,25 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `product`
+-- Dumping data untuk tabel `product`
 --
 
 INSERT INTO `product` (`id`, `nama`, `harga`, `deskripsi`, `image`, `link`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(20, 'a4', 1, 'a', 'images/QGcHLmrLvggdgMrNf94nxk5Nrsnete50GW7ZSHFn.jpg', 'a', '0', '2023-03-17 14:40:36', 0, '2023-03-18 02:57:41', 0),
-(21, 'a5', 1, '1', 'images/4XQY5IAWFZshArXXCRSHbg7Mn4nN8JZJMDA3gyLL.jpg', '1', '0', '2023-03-17 14:42:35', 0, '2023-03-17 14:42:35', 0),
-(22, 'aaa', 1, '1', 'images/57XfEPxuNSSEA7MSlvk6URiXusI20fS79GgcB8oP.jpg', '1', '1', '2023-03-18 02:53:47', 0, '2023-03-18 02:57:15', 0),
-(23, '1', 1, '1', 'images/ofbusSuaxSGJTyjJMXBqoxp0rFvO2EN93F4fZR4b.png', '1', '0', '2023-03-28 01:09:01', 0, '2023-03-28 01:09:01', 0),
-(27, '12222', 1, '1', 'folderGambar/mxQUkdxwH9YQRHhW6k3U5nNZpL2miS684AyNPKXA.jpg', '1', '0', '2023-03-30 00:38:20', 0, '2023-03-30 00:43:02', 0),
-(28, 'abc1', 1, 'aa', 'folderGambar/gEgKyTdd2yYKZVZaxmvul8HRBg3StZNYpoNEgiPL.jpg', '1', '0', '2023-03-31 15:35:59', 0, '2023-04-01 02:15:04', 0),
-(29, 'a1', 1, '1', 'folderGambar/nchrc3RZtSCZkx76CgU5YoYoe7q466xQjeJJNx5L.jpg', '1', '0', '2023-04-01 02:19:22', 0, '2023-04-01 02:19:27', 0),
-(30, 'a2', 1, '1', 'folderImageProduct/ue1xCipV8XuBa4UlrcMGG29QETpQIcV1h1ITcisz.jpg', '1', '0', '2023-04-01 02:20:35', 0, '2023-04-01 02:49:48', 0);
+(31, 'p1', 1, 'p1', 'folderImageProduct/XhNdMtiyuI4gNXMfjeeFexfk8AVeKJ440ek6FlCD.jpg', 'p1', '1', '2023-04-28 13:14:25', 0, '2023-04-30 02:44:00', 0),
+(32, 'p2', 2, 'p2', 'folderImageProduct/4lgl1ukdIfexGCo8i5JbCI1JBZN1jHhdSZUE6BGK.jpg', 'p2', '1', '2023-04-28 13:14:59', 0, '2023-04-30 01:51:28', 0),
+(33, 'p3', 3, 'p3', 'folderImageProduct/s9AE8m8zPqbWsy2PEYTorSGwtR9cX3XZAWtFkbpF.jpg', 'p3', '0', '2023-04-28 13:15:18', 0, '2023-04-30 02:44:59', 0),
+(34, 'p4', 4, 'p4', 'folderImageProduct/pxrT3On0xWmoJAEw2ZiBV0OM5KmG36kfe5CTGSIQ.jpg', 'p4', '1', '2023-04-28 13:42:10', 0, '2023-04-30 02:44:09', 0),
+(35, 'p5', 5, 'p5', 'folderImageProduct/R9BYvBejfCGCtAKU4d0GhZDf0UbbrF5sNycd3asc.jpg', 'p5', '1', '2023-04-28 13:42:26', 0, '2023-04-30 02:44:13', 0),
+(36, 'p6', 6, 'p6', 'folderImageProduct/cw8NExUi6SgrmPyDn0tyL4F9beD5iItwyJXMQid4.jpg', 'p6', '1', '2023-04-28 13:43:12', 0, '2023-04-30 01:38:35', 0),
+(37, 'p7', 7, 'p7', 'folderImageProduct/ogWyqV6k9WVuB5Df2mJw2I9mT7IK0mVi2p65Ubyj.jpg', 'p7', '1', '2023-04-28 13:43:41', 0, '2023-04-30 01:38:04', 0),
+(38, 'p8', 8, 'p8', 'folderImageProduct/ZUcXl4sGDNvO129NsiNrVGKxKP4Mglav5KDlsMjM.jpg', 'p8', '1', '2023-04-28 13:43:57', 0, '2023-04-30 02:44:19', 0),
+(39, 'p9', 9, 'p9', 'folderImageProduct/oI9SVZFJCy2AaRijlrsFbW9OVKi7opVwy1M54277.jpg', 'p9', '0', '2023-04-28 15:05:15', 0, '2023-05-03 13:57:53', 0),
+(40, 'p10', 10, 'p10', 'folderImageProduct/dXvW5a6Qf8571sgDHTTUOdrhmOEuyiTKwq7UOnQ8.jpg', 'p10', '1', '2023-04-28 15:05:46', 0, '2023-04-28 15:05:46', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `team`
+-- Struktur dari tabel `team`
 --
 
 CREATE TABLE `team` (
@@ -104,16 +169,27 @@ CREATE TABLE `team` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `team`
+-- Dumping data untuk tabel `team`
 --
 
 INSERT INTO `team` (`id`, `nama`, `jabatan`, `deskripsi`, `linkedin`, `facebook`, `instagram`, `image`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(12, '1', '1', '1', '1', '1', '1', 'folderImageTeam/Ju1uU58f8bS8fx0OLI3w2rSSaKfpzRQgrGLIcsNq.png', '1', '2023-04-11 10:35:18', 0, '2023-04-11 10:45:28', 0);
+(13, 't1', 't1', 't1', 't1', 't1', 't1', 'folderImageTeam/BHm7a2Ot9wxnCGBslgmSMsAFxOIGMpnYvky1EOHk.jpg', '0', '2023-04-28 15:09:59', 0, '2023-04-30 01:47:09', 0),
+(14, 't2', 't2', 't2', 't2', 't2', 't2', 'folderImageTeam/ApKYa1qTgEqRJsLGxoOG1Zcd37On2S5r35LzngBE.jpg', '1', '2023-04-28 15:10:12', 0, '2023-04-30 01:48:09', 0),
+(15, 't3', 't3', 't3', 't3', 't3', 't3', 'folderImageTeam/QlKOpDt3mIn0BHGe9h6FlQmA8UVBbApQEzXGKRSA.jpg', '0', '2023-04-28 15:10:25', 0, '2023-04-30 01:47:21', 0),
+(16, 't4', 't4', 't4', 't4', 't4', 't4', 'folderImageTeam/VVIyvOksVdCMBVD4IXSz7IquEHoA0NQbEjsbtkj4.jpg', '0', '2023-04-28 15:10:44', 0, '2023-04-30 01:47:28', 0),
+(17, 't5', 't5', 't5', 't5', 't5', 't5', 'folderImageTeam/Nm6i4qGB4nYs0xYIggHVI3Ffz3An6Zn7jUhkO3Nm.jpg', '0', '2023-04-28 15:10:57', 0, '2023-04-30 01:47:34', 0),
+(18, 't6', 't6', 't6', 't6', 't6', 't6', 'folderImageTeam/iEbf6oabGTVdadYIBjttwHwPIjDNHi6rz3QUoHki.jpg', '0', '2023-04-28 15:11:20', 0, '2023-04-30 01:47:41', 0),
+(19, 't7', 't7', 't7', 't7', 't7', 't7', 'folderImageTeam/6Oeix5qfe7cc5sCin9jPlVX4RyFDf87WHry3ERBh.jpg', '1', '2023-04-28 15:11:34', 0, '2023-04-28 15:11:34', 0),
+(20, 't8', 't8', 't8', '', '', 't8', 'folderImageTeam/M38Bf4z2Q2vMXBCx55p3ffv13gkg39ixEMI4JuiW.jpg', '1', '2023-04-28 15:11:49', 0, '2023-04-28 15:39:36', 0),
+(21, 't9', 't9', 't9', 't9', 't9', 't9', 'folderImageTeam/4iC2axRLF5MHlAYiDYncs7jszAAqGvVOvifwGE5O.jpg', '0', '2023-04-28 15:12:03', 0, '2023-04-30 01:47:52', 0),
+(22, 't10', 't10', 't10', 't10', '', 't10', 'folderImageTeam/wDClLupuOzDCvTx8ffI59325O4UPwxrS5fpkEhQK.jpg', '1', '2023-04-28 15:12:23', 0, '2023-04-28 15:19:15', 0),
+(23, 'a', 'b', 'c', 'd', 'e', 'f', 'folderImageTeam/M4WK9ozL3PDK8IrdsrAquuhXuoCUyTr3oHHxmQvl.jpg', '1', '2023-05-04 09:25:59', 0, '2023-05-04 09:25:59', 0),
+(24, 'xxxx', 'xxxxxxxxxxx', 'ccccccccccc\r\nccccccccccccccccccccccccccccca\r\n\r\n\r\nxxxxxxx', '1', '1', '1', 'folderImageTeam/yDScIVTC2aYva1MhbCWnZ9yGCSDKrUwbD4VxoCet.jpg', '1', '2023-05-04 09:30:02', 0, '2023-05-04 09:46:07', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -131,68 +207,79 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `username`, `nama`, `email`, `alamat`, `password`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
 (1, 'harbor', 'harbor', 'harbor@gmail.com', 'sea', '$2y$10$AoR.a7glsY068Vt8LdKRjO0L7oxth9cy1Fc7mjIp2mGyuMwPBhgmS', '0', '2023-03-13 07:28:44', 0, '2023-03-13 07:49:04', 0),
 (2, 'move', 'move', 'move@gmail.com', 'move', '$2y$10$tsX7LDJmi5BLXJP730K2J.qCVfJyDHJV5uszzYwCEYhMoD4MO..5e', '0', '2023-03-13 07:55:12', 0, '2023-03-13 07:55:12', 0),
 (3, 'gecko', 'gecko', 'gecko@gmail.com', 'gecko', '$2y$10$OKQeFzl7xDOWqKyoU9h4QeNNc.B725wIb6q/mZjTJmDa6310XwdL2', '0', '2023-03-13 08:02:29', 0, '2023-03-13 08:02:29', 0),
-(4, 'thief', 'thief', 'thief@gmail.com', 'thief', '$2y$10$F9NMAeyQNuWFsej9B4eBGuG0PtKzIL3yfdBfnf5KlqJ3VtvJ2KN8a', '0', '2023-03-13 08:15:28', 0, '2023-03-13 08:15:28', 0),
-(5, 'xxx', 'xxx', 'xxx2\\@gmail.com', 'xxx', '$2y$10$zrY49s4ijsvByC/Ys3ktseZhYU9C/63JNX28e8QB3Z7YuBNCjI6fi', '0', '2023-03-13 09:45:32', 0, '2023-03-13 09:45:32', 0);
+(4, 'thief', 'thief', 'thief@gmail.com', 'thief', '$2y$10$F9NMAeyQNuWFsej9B4eBGuG0PtKzIL3yfdBfnf5KlqJ3VtvJ2KN8a', '0', '2023-03-13 08:15:28', 0, '2023-03-13 08:15:28', 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `catalog`
+-- Indeks untuk tabel `catalog`
 --
 ALTER TABLE `catalog`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product`
+-- Indeks untuk tabel `inbox`
+--
+ALTER TABLE `inbox`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `team`
+-- Indeks untuk tabel `team`
 --
 ALTER TABLE `team`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `catalog`
+-- AUTO_INCREMENT untuk tabel `catalog`
 --
 ALTER TABLE `catalog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `product`
+-- AUTO_INCREMENT untuk tabel `inbox`
+--
+ALTER TABLE `inbox`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT untuk tabel `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
--- AUTO_INCREMENT for table `team`
+-- AUTO_INCREMENT untuk tabel `team`
 --
 ALTER TABLE `team`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
