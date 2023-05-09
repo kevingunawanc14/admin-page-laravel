@@ -22,7 +22,7 @@ class InboxController extends Controller
 
     public function addInbox(Request $request)
     {
-        
+
         $request->validate(
             [
                 'nama' => 'required|min:1',
@@ -50,11 +50,11 @@ class InboxController extends Controller
 
     public function updateInboxPage($id)
     {
-      
+
 
         $dataUpdate = Inbox::select('*')->where('id', $id)->first();
 
-    
+
 
         return view('inbox/update', ['data' => $dataUpdate]);
     }
@@ -77,7 +77,7 @@ class InboxController extends Controller
                 'nama' => $request->nama,
                 'email' => $request->email,
                 'pesan' => $request->pesan,
-                'status' => ($request->status != "" ? "1" : "0")    
+                'status' => ($request->status != "" ? "1" : "0")
             ]
         );
 
@@ -100,9 +100,21 @@ class InboxController extends Controller
         }
     }
 
-    public function changeStatusInbox($id){
+    public function updateInboxStatus($id)
+    {
+        $inbox = Inbox::find($id);
 
+        // Check if the inbox status is already active
+        // if ($inbox->status == '1') {
+        //     return redirect()->back()->with('error', 'Inbox status is already active!');
+        // }
+
+        // Update the inbox status to active
+        $inbox->status = '1';
+        $inbox->save();
+        
+        return response()->json(['status' => 'success']);
+        
+        // return redirect()->back()->with('success', 'Inbox status has been updated to active.');
     }
-
-
 }

@@ -55,6 +55,8 @@ Route::get('inbox/add', [InboxController::class, 'addInboxPage'])->name('addInbo
 Route::post('inbox/add', [InboxController::class, 'addInbox'])->name('addInbox')->middleware('auth');
 Route::get('inbox/update/{id}', [InboxController::class, 'updateInboxPage'])->name('updateInboxPage')->middleware('auth');
 Route::post('inbox/update', [InboxController::class, 'updateInbox'])->name('updateInbox')->middleware('auth');
+Route::get('inbox/update-inbox-status/{id}', [InboxController::class, 'updateInboxStatus'])->name('updateInboxStatus')->middleware('auth');
+
 
 
 
