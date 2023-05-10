@@ -17,9 +17,9 @@
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Nama</label>
                                     <div class="col-sm-10">
                                         <input name="nama" value="{{ $data->nama }}" type="text"
-                                            class="form-control  @error('nama')is-invalid @enderror" id="inputText">
+                                            class="form-control  @error('nama')is-invalid @enderror" id="inputText" readonly>
                                         <input name="id" value="{{ $data->id }}" type="hidden"
-                                            class="form-control" id="inputText">
+                                            class="form-control" id="inputText" readonly>
                                         @error('nama')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -29,7 +29,7 @@
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
                                     <div class="col-sm-10">
                                         <input name="email" value="{{ $data->email }}" type="text"
-                                            class="form-control @error('nama')is-invalid @enderror" id="inputEmail">
+                                            class="form-control @error('nama')is-invalid @enderror" id="inputEmail" readonly>
                                         @error('email')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -38,15 +38,14 @@
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Pesan</label>
                                     <div class="col-sm-10">
-                                        <input name="pesan" value="{{ $data->pesan }}" type="text"
-                                            class="form-control @error('email')is-invalid @enderror" id="inputText">
+                                        <textarea name="pesan" class="form-control @error('email')is-invalid @enderror" id="inputText" rows="3" readonly>{{ $data->pesan }}</textarea>
                     
                                         @error('pesan')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mb-3">
+                                {{-- <div class="row mb-3">
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Status</label>
                                     <div class="col-sm-10">
                                         <div class="form-check form-switch mt-2">
@@ -54,10 +53,10 @@
                                                 id="flexSwitchCheckDefault" {{ $data->status == "1" ? "checked" : "" }} >
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                    <button type="reset" class="btn btn-secondary">Reset</button>
+                                    {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+                                    {{-- <button type="reset" class="btn btn-secondary">Reset</button> --}}
                                     <a href="{{ route('inboxPage') }}" class="btn btn-dark">Back</a>
                                 </div>
                             </form><!-- End Horizontal Form -->
