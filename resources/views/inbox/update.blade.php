@@ -8,7 +8,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Update Inbox Form</h5>
+                            <h5 class="card-title">Detail Inbox</h5>
 
                             <!-- Horizontal Form -->
                             <form method="post" action="{{ route('updateInbox') }}">

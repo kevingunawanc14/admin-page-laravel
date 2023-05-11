@@ -69,9 +69,9 @@ class PostController extends Controller
         // dd($request);
 
         $validator = Validator::make($request->all(), [
-            'nama' => 'required|min:2',
+            'nama' => 'required|min:1',
             'email' => 'required|email',
-            'pesan' => 'required|min:5',
+            'pesan' => 'required|min:1',
         ]);
     
         if ($validator->fails()) {
@@ -86,17 +86,6 @@ class PostController extends Controller
     
         return response()->json(['success' => true]);
 
-        // if($Inbox){
-        //     return $Inbox;
-        // }else{
-        //     return $Inbox;
-        // }
-
-        // if ($Inbox) {
-        //     return redirect()->route('inboxPage')->with('berhasil', 'Data berhasil di tambahkan');
-        // } else {
-        //     return redirect()->route('inboxPage')->with('gagal', 'Data gagal di tambahkan');
-        // }
 
     }
 
