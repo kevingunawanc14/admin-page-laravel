@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\InboxController;
+use App\Http\Controllers\StatisticController;
 use App\Http\Controllers\TeamController;
 
 // User
@@ -57,6 +58,8 @@ Route::get('inbox/update/{id}', [InboxController::class, 'updateInboxPage'])->na
 Route::post('inbox/update', [InboxController::class, 'updateInbox'])->name('updateInbox')->middleware('auth');
 Route::get('inbox/update-inbox-status/{id}', [InboxController::class, 'updateInboxStatus'])->name('updateInboxStatus')->middleware('auth');
 
+// Statistic
+Route::get('statictic/view', [StatisticController::class, 'statisticPage'])->name('statisticPage')->middleware('auth');
 
 
 

@@ -9,6 +9,7 @@ use App\Models\Inbox;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
+use App\Models\Statistic;
 use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
@@ -88,6 +89,22 @@ class PostController extends Controller
 
 
     }
+
+    public function getIpAndPagename(Request $request)
+    {
+        // dd($request);
+    
+        Statistic::create([
+            'ip' => $request->pageURL,
+            'page' => $request->ipAddress
+        ]);
+    
+        return response()->json(['success' => true]);
+
+
+    }
+
+
 
 
     /**

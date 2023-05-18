@@ -57,6 +57,13 @@
         </a>
       </li> 
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('statisticPage') }}">
+          <i class="ri-line-chart-line"></i>
+          <span>Statistic</span>
+        </a>
+      </li> 
+
       {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="pages-blank.html">
           <i class="bi bi-file-earmark"></i>

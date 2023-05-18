@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Bulan Mei 2023 pada 13.15
+-- Waktu pembuatan: 18 Bulan Mei 2023 pada 07.22
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 7.4.30
 
@@ -102,13 +102,27 @@ INSERT INTO `inbox` (`id`, `nama`, `email`, `pesan`, `status`, `created_at`, `cr
 (22, 't', 't@gmail.com', 't', '', '2023-05-07 03:57:05', 0, '2023-05-07 03:57:05', 0),
 (23, 'x', 'x@gmail.com', 'x', '', '2023-05-07 03:58:22', 0, '2023-05-07 03:58:22', 0),
 (24, 'xx', 'x@gmail.com', 'x', '', '2023-05-07 03:59:18', 0, '2023-05-07 03:59:18', 0),
-(25, 'x', 'x@gmail.com', 'x', '', '2023-05-07 04:10:11', 0, '2023-05-07 04:10:11', 0),
+(25, 'x', 'x@gmail.com', 'x', '1', '2023-05-07 04:10:11', 0, '2023-05-10 06:52:43', 0),
 (26, 'xx', 'x@gmail.com', 'x', '1', '2023-05-07 04:10:24', 0, '2023-05-07 04:13:05', 0),
 (27, 'q', 'q@gmail.com', 'q', '', '2023-05-07 04:36:59', 0, '2023-05-07 04:36:59', 0),
-(28, 'ab', 'a@gmail.com', 'abcde', '', '2023-05-07 05:01:29', 0, '2023-05-07 05:01:29', 0),
+(28, 'ab', 'a@gmail.com', 'abcde', '1', '2023-05-07 05:01:29', 0, '2023-05-10 06:51:26', 0),
 (29, 'ab', 'ab@gmail.com', 'abcde', '1', '2023-05-07 05:02:23', 0, '2023-05-07 05:02:35', 0),
-(30, 'ab', 'ab@gmail.com', 'abcdeee', '', '2023-05-07 05:04:21', 0, '2023-05-07 05:04:21', 0),
-(31, 'ab', 'ab@gmail.com', 'abcdeee', '', '2023-05-07 05:04:24', 0, '2023-05-07 05:04:24', 0);
+(30, 'ab', 'ab@gmail.com', 'abcdeee', '1', '2023-05-07 05:04:21', 0, '2023-05-09 02:33:43', 0),
+(31, 'ab', 'ab@gmail.com', 'abcdeee', '1', '2023-05-07 05:04:24', 0, '2023-05-10 06:48:10', 0),
+(32, 'abcdef', 'abc@gmail.com', 'aaaaaaaa', '1', '2023-05-08 15:54:22', 0, '2023-05-09 02:42:02', 0),
+(33, 'abcc', 'abc@gmail.com', 'aaaaaaaaaaaaaa', '1', '2023-05-09 01:38:17', 0, '2023-05-09 02:29:11', 0),
+(34, 'test', 'test@gmail.com', 'testttttttttxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', '1', '2023-05-09 01:40:47', 0, '2023-05-09 15:09:00', 0),
+(35, 'ab', 'b@gmail.com', 'cdefg', '1', '2023-05-09 02:46:27', 0, '2023-05-09 15:08:57', 0),
+(36, 'aaaaaaa', 'abc@gmail.com', 'aaaaaaaaaaaaaaaa', '', '2023-05-10 11:39:24', 0, '2023-05-10 11:39:24', 0),
+(37, 'ab', 'a@gmail.com', 'abcde', '', '2023-05-10 13:40:21', 0, '2023-05-10 13:40:21', 0),
+(38, 'abcde', 'abc@gmail.com', 'abcde', '', '2023-05-10 13:40:44', 0, '2023-05-10 13:40:44', 0),
+(39, 'a', 'b@gmail.com', 'c', '', '2023-05-10 14:14:23', 0, '2023-05-10 14:14:23', 0),
+(40, 'a', 'b@gmail.com', 'a', '', '2023-05-10 14:14:35', 0, '2023-05-10 14:14:35', 0),
+(41, 'a', 'b@gmail.com', 'c', '1', '2023-05-10 14:14:48', 0, '2023-05-11 07:14:08', 0),
+(42, 'a', 'a@gmail.com', 'tepe', '1', '2023-05-10 14:15:04', 0, '2023-05-11 07:00:48', 0),
+(43, 'a', 'b@gmail.com', 'a', '1', '2023-05-10 14:15:18', 0, '2023-05-11 06:39:31', 0),
+(44, 'aaa', 'a@gmail.com', 'a', '', '2023-05-15 08:32:37', 0, '2023-05-15 08:32:37', 0),
+(45, 'a', 'x@gmail.com', 'x', '', '2023-05-15 08:36:45', 0, '2023-05-15 08:36:45', 0);
 
 -- --------------------------------------------------------
 
@@ -145,6 +159,23 @@ INSERT INTO `product` (`id`, `nama`, `harga`, `deskripsi`, `image`, `link`, `sta
 (38, 'p8', 8, 'p8', 'folderImageProduct/ZUcXl4sGDNvO129NsiNrVGKxKP4Mglav5KDlsMjM.jpg', 'p8', '1', '2023-04-28 13:43:57', 0, '2023-04-30 02:44:19', 0),
 (39, 'p9', 9, 'p9', 'folderImageProduct/oI9SVZFJCy2AaRijlrsFbW9OVKi7opVwy1M54277.jpg', 'p9', '0', '2023-04-28 15:05:15', 0, '2023-05-03 13:57:53', 0),
 (40, 'p10', 10, 'p10', 'folderImageProduct/dXvW5a6Qf8571sgDHTTUOdrhmOEuyiTKwq7UOnQ8.jpg', 'p10', '1', '2023-04-28 15:05:46', 0, '2023-04-28 15:05:46', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `statistic`
+--
+
+CREATE TABLE `statistic` (
+  `id` int(11) NOT NULL,
+  `page` varchar(200) NOT NULL,
+  `ip` varchar(200) NOT NULL,
+  `status` char(1) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` int(200) NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `updated_by` int(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -239,6 +270,12 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `statistic`
+--
+ALTER TABLE `statistic`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `team`
 --
 ALTER TABLE `team`
@@ -264,13 +301,19 @@ ALTER TABLE `catalog`
 -- AUTO_INCREMENT untuk tabel `inbox`
 --
 ALTER TABLE `inbox`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT untuk tabel `product`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
+--
+-- AUTO_INCREMENT untuk tabel `statistic`
+--
+ALTER TABLE `statistic`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `team`

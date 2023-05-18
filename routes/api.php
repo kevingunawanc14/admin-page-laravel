@@ -24,6 +24,8 @@ Route::get('team',[PostController::class,'getTeam']);
 Route::get('product',[PostController::class,'getProduct']);
 Route::get('catalog',[PostController::class,'getCatalog']);
 Route::post('test1', [PostController::class, 'submitContact']);
+Route::post('getIpAndPagename', [PostController::class, 'getIpAndPagename']);
+
 
 Route::get('test', function () {
     dd("*77*");
