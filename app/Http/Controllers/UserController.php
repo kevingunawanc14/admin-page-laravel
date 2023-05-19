@@ -43,7 +43,7 @@ class UserController extends Controller
 
             $namaUser = Auth::User()->nama;
 
-            return redirect()->route('usersPage')->with('berhasil', 'Selamat datang ' . $namaUser);
+            return redirect()->route('statisticPage')->with('berhasil', 'Selamat datang ' . $namaUser);
         } else {
             return redirect()->route('loginPage')->with('gagal', 'Username / password salah');
         }

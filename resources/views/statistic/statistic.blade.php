@@ -182,22 +182,18 @@
                                             console.log(dates)
 
                                             const statisticData = @json($statistic);
-                                            console.log(statisticData)
+                                            // console.log(statisticData)
                                             const arrayProduct = [];
-                                            const arrayIndex = [];
-                                            const arrayContact = [];
+                                            // const arrayIndex = [];
+                                            // const arrayContact = [];
 
                                             statisticData.forEach((statistic) => {
-                                                if (statistic.ip === 'http://127.0.0.1:5500/product.html') {
-                                                    arrayProduct.push(statistic.total_users);
-                                                } else if (statistic.ip === 'http://127.0.0.1:5500/index.html') {
-                                                    arrayIndex.push(statistic.total_users);
-                                                } else {
-                                                    arrayContact.push(statistic.total_users);
-                                                }
+
+                                                arrayProduct.push(statistic.total_users);
+
                                             });
 
-                                            const arrays = [arrayProduct, arrayIndex, arrayContact];
+                                            const arrays = [arrayProduct];
                                             const desiredLength = 6;
 
                                             arrays.forEach((array) => {
@@ -210,25 +206,19 @@
 
                                             // Output the resulting arrays
                                             console.log(arrayProduct);
-                                            console.log(arrayIndex);
-                                            console.log(arrayContact);
+
+                                            // return
 
                                             // return
                                             // Dynamic data for the y-axis
-                                            const indexPage = arrayIndex; // Replace with your dynamic data
+                                            // const indexPage = arrayIndex; // Replace with your dynamic data
                                             const productPage = arrayProduct; // Replace with your dynamic data
-                                            const contactPage = arrayContact; // Replace with your dynamic data
+                                            // const contactPage = arrayContact; // Replace with your dynamic data
 
                                             new ApexCharts(document.querySelector("#reportsChart"), {
                                                 series: [{
                                                     name: 'Page Index',
-                                                    data: indexPage,
-                                                }, {
-                                                    name: 'Page Product',
-                                                    data: productPage,
-                                                }, {
-                                                    name: 'Page Contact',
-                                                    data: contactPage,
+                                                    data: productPage
                                                 }],
                                                 chart: {
                                                     height: 350,

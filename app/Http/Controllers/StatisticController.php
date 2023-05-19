@@ -16,6 +16,10 @@ class StatisticController extends Controller
         ->groupBy('ip', 'day')
         ->get();
 
+        $statistic_1 = Statistic::select('ip', DB::raw('DATE(created_at) as day'), DB::raw('COUNT(id) as total_users'))
+        ->groupBy('day')
+        ->get();
+
 
         $totalTeams = Team::count();
 
@@ -24,7 +28,7 @@ class StatisticController extends Controller
         $totalVisitors = Statistic::count();
     
         return view('statistic/statistic', [
-            'statistic' => $statistic,
+            'statistic' => $statistic_1,
             'totalTeams' => $totalTeams,
             'totalProducts' => $totalProducts,
             'totalVisitors' => $totalVisitors
