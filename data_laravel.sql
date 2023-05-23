@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Bulan Mei 2023 pada 07.22
--- Versi server: 10.4.25-MariaDB
--- Versi PHP: 7.4.30
+-- Waktu pembuatan: 23 Bulan Mei 2023 pada 06.09
+-- Versi server: 10.4.28-MariaDB
+-- Versi PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,7 +38,7 @@ CREATE TABLE `catalog` (
   `created_by` int(200) NOT NULL,
   `updated_at` datetime NOT NULL,
   `updated_by` int(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `catalog`
@@ -72,7 +72,7 @@ CREATE TABLE `inbox` (
   `created_by` int(200) NOT NULL,
   `updated_at` datetime NOT NULL,
   `updated_by` int(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `inbox`
@@ -142,7 +142,7 @@ CREATE TABLE `product` (
   `created_by` int(200) NOT NULL,
   `updated_at` datetime NOT NULL,
   `updated_by` int(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `product`
@@ -168,14 +168,30 @@ INSERT INTO `product` (`id`, `nama`, `harga`, `deskripsi`, `image`, `link`, `sta
 
 CREATE TABLE `statistic` (
   `id` int(11) NOT NULL,
-  `page` varchar(200) NOT NULL,
   `ip` varchar(200) NOT NULL,
+  `page` varchar(200) NOT NULL,
   `status` char(1) NOT NULL,
   `created_at` datetime NOT NULL,
   `created_by` int(200) NOT NULL,
   `updated_at` datetime NOT NULL,
   `updated_by` int(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `statistic`
+--
+
+INSERT INTO `statistic` (`id`, `ip`, `page`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(1, '180.247.16.184', 'http://127.0.0.1:5500/index.html', '', '2023-05-18 12:29:51', 0, '2023-05-19 12:29:51', 0),
+(2, '180.247.16.184', 'http://127.0.0.1:5500/contact.html', '', '2023-05-19 12:30:14', 0, '2023-05-19 12:30:14', 0),
+(3, '180.247.16.184', 'http://127.0.0.1:5500/contact.html', '', '2023-05-19 14:45:27', 0, '2023-05-19 14:45:27', 0),
+(4, '180.247.16.184', 'http://127.0.0.1:5500/contact.html', '', '2023-05-19 14:45:35', 0, '2023-05-19 14:45:35', 0),
+(5, '180.247.16.184', 'http://127.0.0.1:5500/contact.html', '', '2023-05-17 14:45:55', 0, '2023-05-19 14:45:55', 0),
+(8, '180.241.7.174', 'http://127.0.0.1:5500/index.html', '', '2023-05-23 03:54:31', 0, '2023-05-23 03:54:31', 0),
+(9, '180.241.7.174', 'http://127.0.0.1:5500/index.html', '', '2023-05-23 03:54:42', 0, '2023-05-23 03:54:42', 0),
+(10, '180.241.7.174', 'http://127.0.0.1:5500/contact.html', '', '2023-05-23 03:54:50', 0, '2023-05-23 03:54:50', 0),
+(11, '180.241.7.174', 'http://127.0.0.1:5500/contact.html', '', '2023-05-23 04:04:24', 0, '2023-05-23 04:04:24', 0),
+(12, '180.241.7.174', 'http://127.0.0.1:5500/contact.html', '', '2023-05-23 04:04:25', 0, '2023-05-23 04:04:25', 0);
 
 -- --------------------------------------------------------
 
@@ -197,7 +213,7 @@ CREATE TABLE `team` (
   `created_by` int(200) NOT NULL,
   `updated_at` datetime NOT NULL,
   `updated_by` int(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `team`
@@ -235,7 +251,7 @@ CREATE TABLE `user` (
   `created_by` int(11) NOT NULL,
   `updated_at` datetime NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `user`
@@ -313,7 +329,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT untuk tabel `statistic`
 --
 ALTER TABLE `statistic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `team`

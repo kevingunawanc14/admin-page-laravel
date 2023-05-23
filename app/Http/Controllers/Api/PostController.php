@@ -95,8 +95,8 @@ class PostController extends Controller
         // dd($request);
     
         Statistic::create([
-            'ip' => $request->pageURL,
-            'page' => $request->ipAddress
+            'ip' => $request->ipAddress,
+            'page' => $request->pageURL
         ]);
     
         return response()->json(['success' => true]);
