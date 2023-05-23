@@ -1,4 +1,4 @@
-{{-- @dd($totalMonthlyVisitors); --}}
+{{-- @dd($statistic); --}}
 {{-- @dd($totalOnline); --}}
 
 
@@ -187,42 +187,42 @@
 
                                             const statisticData = @json($statistic);
                                             // console.log(statisticData)
-                                            const arrayProduct = [];
+                                            const arrayVisitor = [];
                                             // const arrayIndex = [];
                                             // const arrayContact = [];
 
                                             statisticData.forEach((statistic) => {
 
-                                                arrayProduct.push(statistic.total_users);
+                                                arrayVisitor.push(statistic.total_users);
 
                                             });
 
-                                            const arrays = [arrayProduct];
-                                            const desiredLength = 6;
+                                            // const arrays = [arrayProduct];
+                                            // const desiredLength = 6;
 
-                                            arrays.forEach((array) => {
-                                                if (array.length < desiredLength) {
-                                                    while (array.length < desiredLength) {
-                                                        array.unshift(0);
-                                                    }
-                                                }
-                                            });
+                                            // arrays.forEach((array) => {
+                                            //     if (array.length < desiredLength) {
+                                            //         while (array.length < desiredLength) {
+                                            //             array.unshift(0);
+                                            //         }
+                                            //     }
+                                            // });
 
                                             // Output the resulting arrays
-                                            console.log(arrayProduct);
+                                            console.log(arrayVisitor);
 
                                             // return
 
                                             // return
                                             // Dynamic data for the y-axis
                                             // const indexPage = arrayIndex; // Replace with your dynamic data
-                                            const productPage = arrayProduct; // Replace with your dynamic data
+                                            const visitors = arrayVisitor; // Replace with your dynamic data
                                             // const contactPage = arrayContact; // Replace with your dynamic data
 
                                             new ApexCharts(document.querySelector("#reportsChart"), {
                                                 series: [{
-                                                    name: 'Page Index',
-                                                    data: productPage
+                                                    name: 'Page',
+                                                    data: visitors
                                                 }],
                                                 chart: {
                                                     height: 350,
