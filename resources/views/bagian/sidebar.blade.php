@@ -16,7 +16,7 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('statisticPage') }}">
                 <i class="ri-line-chart-line"></i>
-                <span>Statistic</span>
+                <span>Dashboard</span>
             </a>
         </li>
         

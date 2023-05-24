@@ -59,7 +59,7 @@ Route::post('inbox/update', [InboxController::class, 'updateInbox'])->name('upda
 Route::get('inbox/update-inbox-status/{id}', [InboxController::class, 'updateInboxStatus'])->name('updateInboxStatus')->middleware('auth');
 
 // Statistic
-Route::get('statictic/view', [StatisticController::class, 'statisticPage'])->name('statisticPage')->middleware('auth');
+Route::get('statictic/dashboard', [StatisticController::class, 'statisticPage'])->name('statisticPage')->middleware('auth');
 
 
 
