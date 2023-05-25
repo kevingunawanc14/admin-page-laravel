@@ -25,16 +25,21 @@ class StatisticController extends Controller
 
         $result = Statistic::select('t.day', DB::raw('COUNT(s.id) as total_users'))
             ->from(DB::raw('(
-                    SELECT CURDATE() - INTERVAL 5 DAY AS day UNION ALL
-                    SELECT CURDATE() - INTERVAL 4 DAY AS day UNION ALL
-                    SELECT CURDATE() - INTERVAL 3 DAY AS day UNION ALL
-                    SELECT CURDATE() - INTERVAL 2 DAY AS day UNION ALL
-                    SELECT CURDATE() - INTERVAL 1 DAY AS day UNION ALL
-                    SELECT CURDATE() AS day) AS t'))
+                
+        SELECT CURDATE() - INTERVAL 6 DAY AS day UNION ALL
+        SELECT CURDATE() - INTERVAL 5 DAY AS day UNION ALL
+        SELECT CURDATE() - INTERVAL 4 DAY AS day UNION ALL
+        SELECT CURDATE() - INTERVAL 3 DAY AS day UNION ALL
+        SELECT CURDATE() - INTERVAL 2 DAY AS day UNION ALL
+        SELECT CURDATE() - INTERVAL 1 DAY AS day UNION ALL
+        SELECT CURDATE() AS day
+    ) AS t'))
             ->leftJoin('statistic AS s', DB::raw('t.day'), '=', DB::raw('DATE(s.created_at)'))
-            ->where('t.day', '>=', $startDate)
             ->groupBy('t.day')
             ->get();
+
+
+
 
         $totalTeams = Team::count();
 

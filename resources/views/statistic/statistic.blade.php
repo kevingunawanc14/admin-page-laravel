@@ -176,7 +176,7 @@
 
                                             const today = new Date();
                                             const dates = [];
-                                            for (let i = 5; i >= 0; i--) {
+                                            for (let i = 6; i >= 0; i--) {
                                                 const date = new Date(today);
                                                 date.setDate(today.getDate() - i);
                                                 const formattedDate = date.toISOString().split('T')[0];
