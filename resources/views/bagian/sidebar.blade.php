@@ -27,14 +27,24 @@
             </a>
         </li> --}}
 
+      
+
+
+    
+
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('usersPage') }}">
-                <i class="ri-hq-line"></i>
-                <span>User</span>
+            <a class="nav-link collapsed" href="{{ route('inboxPage') }}">
+                <i class="ri-inbox-archive-line"></i>
+                <span>Inbox</span>
             </a>
         </li>
 
-
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('teamPage') }}">
+                <i class="ri-team-line"></i>
+                <span>Team</span>
+            </a>
+        </li>
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('produkPage') }}">
                 <i class="ri-archive-line"></i>
@@ -49,21 +59,13 @@
             </a>
         </li>
 
-
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('teamPage') }}">
-                <i class="ri-team-line"></i>
-                <span>Team</span>
+            <a class="nav-link collapsed" href="{{ route('usersPage') }}">
+                <i class="ri-group-line"></i>
+                <span>User</span>
             </a>
         </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('inboxPage') }}">
-                <i class="ri-inbox-archive-line"></i>
-                <span>Inbox</span>
-            </a>
-        </li>
-
+    
 
 
         {{-- <li class="nav-item">
