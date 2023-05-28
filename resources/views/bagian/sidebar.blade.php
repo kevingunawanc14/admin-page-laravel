@@ -20,12 +20,12 @@
             </a>
         </li>
         
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('profileUserPage') }}">
                 <i class="ri-account-box-line"></i>
                 <span>Profile</span>
             </a>
-        </li>
+        </li> --}}
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('usersPage') }}">
