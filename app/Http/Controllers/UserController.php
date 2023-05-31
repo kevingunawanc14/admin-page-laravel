@@ -57,6 +57,12 @@ class UserController extends Controller
 
     public function usersPage()
     {
+        // // Instantiate FirstController
+        // $inboxController = new InboxController();
+
+        // // Call the countUnreadInbox() function
+        // $unreadMessageCount = $inboxController->countUnreadInbox();
+
         $user = User::orderBy('id_user', 'desc')->get();
 
         // dd(session()->all());

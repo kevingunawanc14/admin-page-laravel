@@ -1,3 +1,4 @@
+
 <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
@@ -19,26 +20,24 @@
                 <span>Dashboard</span>
             </a>
         </li>
-        
         {{-- <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('profileUserPage') }}">
                 <i class="ri-account-box-line"></i>
                 <span>Profile</span>
             </a>
         </li> --}}
-
-      
-
-
-    
-
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('inboxPage') }}">
-                <i class="ri-inbox-archive-line"></i>
-                <span>Inbox</span>
+            <a class="nav-link collapsed d-flex align-items-center justify-content-between"
+                href="{{ route('inboxPage') }}">
+                <div>
+                    <i class="ri-inbox-line"></i>
+                    <span class="mr-2">Inbox</span>
+                </div>
+                <button class="btn btn-danger btn-sm">
+                    <span class="badge badge-light"></span>
+                </button>
             </a>
         </li>
-
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('teamPage') }}">
                 <i class="ri-team-line"></i>
@@ -54,7 +53,7 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('catalogPage') }}">
-                <i class="ri-file-pdf-line"></i>
+                <i class="ri-book-open-line"></i>
                 <span>Catalog</span>
             </a>
         </li>
@@ -65,7 +64,7 @@
                 <span>User</span>
             </a>
         </li>
-    
+
 
 
         {{-- <li class="nav-item">
@@ -85,3 +84,22 @@
     </ul>
 
 </aside><!-- End Sidebar-->
+
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+        // Make an AJAX request to the countUnreadInbox route
+        fetch("{{ route('countUnreadInbox') }}")
+            .then(response => response.json())
+            .then(data => {
+                // Update the unread message count in the button
+                const unreadMessageCount = data.unreadMessageCount;
+                const badge = document.querySelector('.btn-danger .badge');
+                if (badge) {
+                    badge.textContent = unreadMessageCount;
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    });
+</script>

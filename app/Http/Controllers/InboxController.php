@@ -17,6 +17,8 @@ class InboxController extends Controller
 
     public function addInboxPage()
     {
+
+
         return view('inbox/add');
     }
 
@@ -102,6 +104,7 @@ class InboxController extends Controller
 
     public function updateInboxStatus($id)
     {
+
         $inbox = Inbox::find($id);
 
         // Check if the inbox status is already active
@@ -112,9 +115,15 @@ class InboxController extends Controller
         // Update the inbox status to active
         $inbox->status = '1';
         $inbox->save();
-        
+
         return response()->json(['status' => 'success']);
-        
+
         // return redirect()->back()->with('success', 'Inbox status has been updated to active.');
+    }
+
+    public function countUnreadInbox()
+    {
+        $count = Inbox::where('status', '<>', 1)->count();
+        return response()->json(['unreadMessageCount' => $count]);
     }
 }

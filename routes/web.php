@@ -57,6 +57,8 @@ Route::post('inbox/add', [InboxController::class, 'addInbox'])->name('addInbox')
 Route::get('inbox/update/{id}', [InboxController::class, 'updateInboxPage'])->name('updateInboxPage')->middleware('auth');
 Route::post('inbox/update', [InboxController::class, 'updateInbox'])->name('updateInbox')->middleware('auth');
 Route::get('inbox/update-inbox-status/{id}', [InboxController::class, 'updateInboxStatus'])->name('updateInboxStatus')->middleware('auth');
+Route::get('inbox/count', [InboxController::class, 'countUnreadInbox'])->name('countUnreadInbox')->middleware('auth');
+
 
 // Statistic
 Route::get('dashboard', [StatisticController::class, 'statisticPage'])->name('statisticPage')->middleware('auth');

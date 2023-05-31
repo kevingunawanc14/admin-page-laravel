@@ -185,6 +185,17 @@
 
                                             console.log(dates)
 
+                                            const transformedArray = dates.map(dateString => {
+                                                const date = new Date(dateString);
+                                                const month = date.toLocaleString('default', {
+                                                    month: 'long'
+                                                });
+                                                const day = date.getDate();
+                                                return `${day} ${month} `;
+                                            });
+
+                                            console.log(transformedArray);
+
                                             const statisticData = @json($statistic);
                                             // console.log(statisticData)
                                             const arrayVisitor = [];
@@ -226,13 +237,15 @@
                                                 }],
                                                 chart: {
                                                     height: 350,
+                                                    width: '100%', // Adjust the width of the chart container
                                                     type: 'area',
                                                     toolbar: {
                                                         show: false
                                                     },
+                                                    fontSize: '24px',
                                                 },
                                                 markers: {
-                                                    size: 4
+                                                    size: 7
                                                 },
                                                 colors: ['#4154f1', '#2eca6a', '#ff771d'],
                                                 fill: {
@@ -252,9 +265,24 @@
                                                     width: 2
                                                 },
                                                 xaxis: {
-                                                    type: 'datetime',
-                                                    categories: dates
+                                                    categories: transformedArray,
+                                                    labels: {
+                                                        style: {
+                                                            fontSize: '14px' // Adjust the font size for x-axis labels
+                                                        },
+                                                    }
 
+                                                },
+                                                yaxis: {
+                                                    labels: {
+                                                        style: {
+                                                            fontSize: '14px' // Adjust the font size for y-axis labels
+                                                        },
+
+                                                    },
+                                                    min: 0, // Set the minimum value for the y-axis
+                                                    max: 200, // Set the maximum value for the y-axis
+                                                    tickAmount: 4, // Set the number of ticks on the y-axis
                                                 },
                                                 tooltip: {
                                                     x: {
